@@ -15,10 +15,13 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(40), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    phone_number = db.Column(db.Integer(10), nullable=False, unique=True)
+    phone_number = db.Column(db.String(10), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
+    leagues = db.relationship('League', back_populates='commissioner', cascade='all, delete-orphan')
+    teams = db.relationship('Team', back_populates='user', cascade='all, delete-orphan')
 
     @property
     def password(self):
