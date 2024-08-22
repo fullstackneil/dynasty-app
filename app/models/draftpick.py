@@ -4,6 +4,9 @@ from datetime import datetime
 class DraftPick(db.Model):
     __tablename__ = 'draft_picks'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     draft_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('drafts.id')), nullable=False)
     team_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('teams.id')), nullable=False)
@@ -13,7 +16,7 @@ class DraftPick(db.Model):
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
     draft = db.relationship('Draft', back_populates='draft_picks')
-    team = db.relationsihp('Team', back_populates='draft_picks')
+    team = db.relationship('Team', back_populates='draft_picks')
     player = db.relationship('Player', back_populates='draft_picks')
 
     def to_dict(self):

@@ -4,6 +4,9 @@ from datetime import datetime
 class TradeDetail(db.Model):
     __tablename__ = 'trade_details'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     trade_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('trades.id')), nullable=False)
     player_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('players.id')), nullable=False)

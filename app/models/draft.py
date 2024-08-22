@@ -4,9 +4,13 @@ from datetime import datetime
 
 class Draft(db.Model):
     __tablename__ = 'drafts'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     league_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('leagues.id')), nullable=False)
-    draft_date = db.Column(db.Datetime, nullable=False)
+    draft_date = db.Column(db.DateTime, nullable=False)
     draft_type = db.Column(db.String(20), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
