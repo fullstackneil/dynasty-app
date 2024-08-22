@@ -11,7 +11,7 @@ class Draft(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     league_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('leagues.id')), nullable=False)
     draft_date = db.Column(db.DateTime, nullable=False)
-    draft_type = db.Column(db.String(20), nullable=False)
+    draft_type = db.Column(db.String(25), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
