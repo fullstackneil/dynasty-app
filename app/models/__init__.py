@@ -4,7 +4,7 @@ from .user import User
 from .league import League
 from .team import Team
 from .draft import Draft
-from .draftpick import DraftPick
+from .draft_pick import DraftPick
 from .player import Player
 from .roster import Roster
 from .trade_details import TradeDetail

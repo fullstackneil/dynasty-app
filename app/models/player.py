@@ -14,6 +14,7 @@ class Player(db.Model):
     team = db.Column(db.String(40), nullable=False)
     average_draft_position = db.Column(db.Numeric(2,1), nullable=False)
     points_last_season = db.Column(db.Numeric(3,1), nullable=False)
+    image_url = db.Column(db.String(225))
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
@@ -29,5 +30,6 @@ class Player(db.Model):
             'position': self.position,
             'team': self.team,
             'average_draft_position': self.average_draft_position,
-            'points_last_season': self.points_last_season
+            'points_last_season': self.points_last_season,
+            'image_url': self.image_url
         }
