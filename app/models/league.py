@@ -27,7 +27,7 @@ class League(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'commissioner_id': self.comissioner_id,
+            'commissioner_id': self.commissioner_id,
             'draft_type': self.draft_type,
             'scoring_system': self.scoring_system,
             'max_teams': self.max_teams,

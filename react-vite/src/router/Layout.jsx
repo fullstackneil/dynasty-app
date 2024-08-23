@@ -16,7 +16,7 @@ export default function Layout() {
     <>
       <ModalProvider>
         <Navigation />
-        {isLoaded && <Outlet />}
+        <div class='container'>{isLoaded && <Outlet />}</div>
         <Modal />
       </ModalProvider>
     </>
