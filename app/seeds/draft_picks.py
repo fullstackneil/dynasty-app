@@ -10,7 +10,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=1,
-            player_id=25,
+            player_id=1,
             round=1,
             created_at=datetime(2024, 7, 15, 10, 30),
             updated_at=datetime(2024, 7, 15, 10, 30)
@@ -18,7 +18,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=2,
-            player_id=30,
+            player_id=2,
             round=1,
             created_at=datetime(2024, 7, 15, 10, 32),
             updated_at=datetime(2024, 7, 15, 10, 32)
@@ -26,7 +26,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=3,
-            player_id=35,
+            player_id=3,
             round=1,
             created_at=datetime(2024, 7, 15, 10, 34),
             updated_at=datetime(2024, 7, 15, 10, 34)
@@ -34,7 +34,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=4,
-            player_id=40,
+            player_id=4,
             round=1,
             created_at=datetime(2024, 7, 15, 10, 36),
             updated_at=datetime(2024, 7, 15, 10, 36)
@@ -42,7 +42,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=5,
-            player_id=45,
+            player_id=5,
             round=1,
             created_at=datetime(2024, 7, 15, 10, 38),
             updated_at=datetime(2024, 7, 15, 10, 38)
@@ -50,7 +50,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=6,
-            player_id=50,
+            player_id=6,
             round=2,
             created_at=datetime(2024, 7, 15, 10, 40),
             updated_at=datetime(2024, 7, 15, 10, 40)
@@ -58,7 +58,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=7,
-            player_id=55,
+            player_id=7,
             round=2,
             created_at=datetime(2024, 7, 15, 10, 42),
             updated_at=datetime(2024, 7, 15, 10, 42)
@@ -66,7 +66,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=8,
-            player_id=60,
+            player_id=8,
             round=2,
             created_at=datetime(2024, 7, 15, 10, 44),
             updated_at=datetime(2024, 7, 15, 10, 44)
@@ -74,7 +74,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=9,
-            player_id=65,
+            player_id=9,
             round=2,
             created_at=datetime(2024, 7, 15, 10, 46),
             updated_at=datetime(2024, 7, 15, 10, 46)
@@ -82,7 +82,7 @@ def seed_draft_picks():
         DraftPick(
             draft_id=1,
             team_id=10,
-            player_id=70,
+            player_id=10,
             round=2,
             created_at=datetime(2024, 7, 15, 10, 48),
             updated_at=datetime(2024, 7, 15, 10, 48)
