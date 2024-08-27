@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template, request
 from flask_login import current_user, login_required
-from ..models import db, User, League
+from ..models import db, User, League, Team
 from ..forms.league_form import LeagueForm
 
 league_routes = Blueprint('leagues', __name__)
@@ -26,8 +26,17 @@ def get_single_league(id):
     return league.to_dict()
 
 
+#GET ALL TEAMS IN A LEAGUE
+@league_routes.route('/<int:id>/teams')
+def get_all_teams_in_league(id):
+
+    teams = Team.query.filter_by(league_id=id).all()
+
+    return teams.to_dict()
+
+
 # CREATE A LEAGUE
-@league_routes.route('<int:id>/new', methods=["POST"])
+@league_routes.route('/<int:id>/new', methods=["POST"])
 def create_league(id):
 
     form = LeagueForm()
@@ -56,27 +65,32 @@ def create_league(id):
 @league_routes.route('/<int:id>', methods=["PUT"])
 def edit_league(id):
 
+    form = LeagueForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
     data = request.json()
     league = League.query.get(id)
 
     if not league:
         return {"Error": "There is no league to edit"}, 400
 
-    if 'name' in data:
-        league.name = data['name']
+    if form.validate_on_submit():
+        if 'name' in data:
+            league.name = data['name']
 
-    if 'draft_type' in data:
-        league.draft_type = data['draft_type']
+        if 'draft_type' in data:
+            league.draft_type = data['draft_type']
 
-    if 'scoring_system' in data:
-        league.scoring_system = data['scoring_system']
+        if 'scoring_system' in data:
+            league.scoring_system = data['scoring_system']
 
-    if 'max_teams' in data:
-        league.max_teams = data['max_teams']
+        if 'max_teams' in data:
+            league.max_teams = data['max_teams']
 
-    db.session.commit()
+        db.session.commit()
 
-    return league.to_dict(), 200
+        return league.to_dict(), 200
+
 
 #DELETE A LEAGUE
 @league_routes.route('/<int:id>/delete', methods=["DELETE"])

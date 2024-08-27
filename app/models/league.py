@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+from .team import Team
 
 
 
@@ -24,6 +25,7 @@ class League(db.Model):
 
 
     def to_dict(self):
+
         return {
             'id': self.id,
             'name': self.name,

@@ -48,7 +48,7 @@ export const fetchAllLeagues = () => async (dispatch) => {
     const response = await fetch('/api/leagues');
 
     if (response.ok) {
-        const data = response.json();
+        const data = await response.json();
         dispatch(getAllLeagues(data))
     }
 }
@@ -57,40 +57,40 @@ export const fetchSingleLeague = (id) => async (dispatch) => {
     const response = fetch(`/api/leagues/${id}`)
 
     if (response.ok) {
-        const data = (await response).json();
+        const data = await response.json();
         dispatch(getSingleLeague(data))
     }
 }
 
 export const createALeague = (newLeague, leagueId) => async (dispatch) => {
-    const response = fetch(`/api/leagues/${leagueId}/new`, {
+    const response = await fetch(`/api/leagues/${leagueId}/new`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newLeague),
     });
 
     if (response.ok) {
-        data = request.json();
+        data = await request.json();
         dispatch(createLeague(data))
         return data
     }
 }
 
 export const updateLeague = (newLeague, leagueId) => async (dispatch) => {
-    const response = fetch(`/api/leagues/${leagueId}`, {
+    const response = await fetch(`/api/leagues/${leagueId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newLeague)
     });
 
     if (response.ok) {
-        data = request.json();
+        data = await request.json();
         dispatch(editLeague(data));
     }
 }
 
 export const deleteALeague = (leagueId) => async (dispatch) => {
-    const response = fetch(`api/leagues/${leagueId}` {
+    const response = await fetch(`api/leagues/${leagueId}` ,{
         method: 'DELETE'
     })
 

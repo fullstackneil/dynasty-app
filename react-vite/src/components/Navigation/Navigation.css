@@ -1,3 +1,28 @@
 .profile-dropdown {
-  position: absolute;
+	position: absolute;
+	right: 7px;
+	top: 48px;
+	width: 260px;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.5rem;
+	background-color: black;
+}
+
+.navbar-container {
+	position: fixed; /* Make the navbar fixed at the top */
+	top: 0;
+	left: 0;
+	width: 100%; /* Make the navbar span the full width of the page */
+	background-color: white; /* Set background color */
+	z-index: 1000; /* Ensure the navbar is above other elements */
+	display: flex;
+	justify-content: space-between; /* Adjusted from space-around to space-between */
+	align-items: center;
+	padding: 0.7rem 2rem; /* Add padding for spacing */
+	box-sizing: border-box; /* Ensure padding is included in the width */
 }
