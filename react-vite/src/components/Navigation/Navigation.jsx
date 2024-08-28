@@ -9,9 +9,18 @@ function Navigation() {
       <NavLink className='logo-container' to="/">
         <img src={logo} alt="Home" className="navbar-logo" />
       </NavLink>
-      {/* <NavLink to='/teams'>
+      <NavLink to='/leagues'>
+        Leagues
+      </NavLink>
+      <NavLink to='/teams'>
         Teams
-      </NavLink> */}
+      </NavLink>
+      <NavLink to='/players'>
+        Players
+      </NavLink>
+      <NavLink to='/draft'>
+        Draft
+      </NavLink>
       <div className='nav-btn-holder'>
         <ProfileButton />
       </div>

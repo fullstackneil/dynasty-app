@@ -1,0 +1,7 @@
+.home-page {
+	display: flex;
+	gap: 1rem;
+	padding: 15rem;
+    color: black;
+    font-size: large;
+}

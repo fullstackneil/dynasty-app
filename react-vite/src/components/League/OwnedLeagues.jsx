@@ -32,7 +32,7 @@ const OwnedLeagues = ({id}) => {
                 <div key={league.id} className='league-structure'>
                     {isOwner && (
                         <div className='league-information'>
-                            <h3 className='league-name'>{league.name}</h3> {/* Removed extra quote */}
+                            <h3 className='league-name'>{league.name}</h3>
                             <h3 className='league-draft-type'>{league.draft_type}</h3>
                         </div>
                     )}

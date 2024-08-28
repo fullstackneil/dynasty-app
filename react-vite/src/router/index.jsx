@@ -3,6 +3,8 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import UploadPicture from '../components/UploadPicture/UploadPicture'
 import League from '../components/League/League';
+import HomePage from '../components/HomePage/HomePage'
+import TeamIndex from '../components/Team/TeamIndex';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -10,8 +12,8 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: '/leagues',
-        element: <League />,
+        path: "/",
+        element: <HomePage />,
       },
       {
         path: "/login",
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignupFormPage />,
+      },
+      {
+        path: "/leagues/",
+        element: <League />,
+      },
+      {
+        path: "/leagues/:id/teams",
+        element: <TeamIndex />
       },
       {
         path: "/images",

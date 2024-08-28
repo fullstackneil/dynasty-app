@@ -18,6 +18,7 @@
 	--ff-primary: 'Roboto Mono', monospace;
 	/* ! COLORS */
 	--accent-clr: #04bd64;
+	--background-clr: black;
 }
 
 body,
@@ -31,6 +32,13 @@ img,
 label {
 	margin: 0;
 	padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+	color: black;
 }
 
 h1 {
@@ -62,7 +70,7 @@ a {
 li {
 	list-style: none;
 	font-family: var(--ff-primary);
-	color: white;
+	color: grey
 }
 
 button {

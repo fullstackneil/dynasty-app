@@ -1,5 +1,6 @@
 const GET_ALL_TEAMS = '/teams/GET_ALL_TEAMS'
 const GET_SINGLE_TEAM = '/teams/GET_SINGLE_TEAM'
+const GET_ALL_TEAMS_FOR_LEAGUE = '/teams/GET_ALL_TEAMS_FOR_LEAGUE'
 const CREATE_TEAM = '/teams/CREATE_TEAM'
 const EDIT_TEAM = '/teams/EDIT_TEAM'
 const DELETE_TEAM = '/teams/DELETE_TEAM'
@@ -17,6 +18,13 @@ export const getAllTeams = (data) => {
 export const getSingleTeam = (data) => {
     return {
         type: GET_SINGLE_TEAM,
+        payload: data
+    }
+}
+
+export const getTeamsforLeague = (data) => {
+    return {
+        type: GET_ALL_TEAMS_FOR_LEAGUE,
         payload: data
     }
 }
@@ -50,6 +58,15 @@ export const fetchAllTeams = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(getAllTeams(data))
+    }
+}
+
+export const fetchAllTeamsforLeague = (league_id) => async (dispatch) => {
+    const response = await fetch(`/api/leagues/${league_id}/teams`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getTeamsforLeague(data))
     }
 }
 
@@ -116,6 +133,8 @@ const teamReducer = (state = initialState, action) => {
             return {...state, allTeamsArr: action.payload}
         case GET_SINGLE_TEAM:
             return {...state, singleTeam: action.payload}
+        case GET_ALL_TEAMS_FOR_LEAGUE:
+            return {...state, allTeamsArr: action.payload}
         case CREATE_TEAM:
             return {...state, allTeamsArr: [...state.allTeamsArr, action.payload]}
         case EDIT_TEAM:

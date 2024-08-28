@@ -1,0 +1,22 @@
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-text {
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: #FFE81F;
+}
+
+.password-text {
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: #FFE81F;
+}
+
+.button-text {
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: #FFE81F;
+}

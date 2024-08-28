@@ -1,0 +1,115 @@
+:root {
+    --star-wars-yellow: #FFE81F;
+    --primary-font: 'Nunito', sans-serif;
+}
+
+.login-text {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  color: black;
+}
+
+.login-modal {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 225px;
+  gap: 20px;
+}
+
+.credentials-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+}
+
+.credentials-input-box {
+  font: var(--primary-font);
+  height: 25px;
+  width: 90%;
+  margin-left: 18px;
+  margin-top: 15px;
+}
+
+#invalid-credentials {
+  font: var(--primary-font);
+  size: 12px;
+  color: red;
+}
+
+#invalid-password {
+  font: var(--primary-font);
+  size: 12px;
+  color: red;
+}
+
+#error-message {
+  font: var(--primary-font);
+  padding-top: 8px;
+  size: 12px;
+  color: red;
+}
+
+#invalid-credentials {
+  font: var(--primary-font);
+  size: 12px;
+  color: red;
+}
+
+.password-modal {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+}
+
+.password-input-box {
+  font: var(--primary-font);
+  height: 25px;
+  width: 90%;
+  margin-left: 18px;
+  margin-top: 5px;
+}
+
+.login-button {
+  margin: auto;
+  width: 400px;
+  height: 50px;
+  box-shadow: 2px 2px 2px black;
+  background-color: var(--star-wars-yellow);
+  font: var(--primary-font)
+}
+
+.login-button:disabled {
+  background-color: #6c757d; /* Gray background color when disabled */
+  color: #ffffff; /* White text color when disabled */
+  border-color: #6c757d; /* Gray border color when disabled */
+  cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+
+.login-error {
+  margin: auto;
+}
+
+.demo-user-container {
+  margin: auto;
+  width: 400px;
+  height: 50px;
+  box-shadow: 2px 2px 2px black;
+  background-color: var(--star-wars-yellow);
+  font: var(--primary-font);
+  margin-bottom: 10px;
+}
+
+.demo-user-link {
+  height: 50px;
+  color: cornflowerblue;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 20px;
+}

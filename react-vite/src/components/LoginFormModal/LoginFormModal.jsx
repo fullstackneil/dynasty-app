@@ -29,12 +29,13 @@ function LoginFormModal() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='login-popup-container'>
+      <h1 className='login-text'>Log In</h1>
+      <form onSubmit={handleSubmit} className='login-modal'>
         <label>
           Email
           <input
+            className='credentials-input-box'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -45,6 +46,7 @@ function LoginFormModal() {
         <label>
           Password
           <input
+            className='password-input-box'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +56,7 @@ function LoginFormModal() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
       </form>
-    </>
+    </div>
   );
 }
 

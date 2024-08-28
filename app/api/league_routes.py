@@ -32,7 +32,9 @@ def get_all_teams_in_league(id):
 
     teams = Team.query.filter_by(league_id=id).all()
 
-    return teams.to_dict()
+    teams_list = [team.to_dict() for team in teams]
+
+    return teams_list
 
 
 # CREATE A LEAGUE

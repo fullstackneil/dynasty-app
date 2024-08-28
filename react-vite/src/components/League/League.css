@@ -1,0 +1,27 @@
+.league-page-header {
+    padding: 12rem;
+    color: green;
+}
+
+
+
+.league-list-container {
+	padding: 2rem 12rem;
+    display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 6rem;
+}
+
+.league-spot-container {
+	position: relative;
+	border: solid 2px gray;
+	display: flex;
+	flex-direction: row; /* Ensure the image and text are side by side */
+	border-radius: 12px;
+	transition: box-shadow 0.3s ease;
+	height: auto;
+	max-height: 200px;
+	cursor: pointer;
+	width: 600px;
+	overflow: hidden;
+}
