@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllTeamsforLeague } from '../../redux/team';
 import { useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal'
+import CreateTeam from './CreateTeam';
 import './TeamIndex.css'
 
 const TeamIndex = () => {
@@ -18,20 +19,21 @@ const TeamIndex = () => {
 
     if (!currentUser) return null;  // Simplified conditional rendering
 
+    const userHasTeamInLeague = allTeamsArr.some(team => team.user_id === currentUser.id);
+
+
     return (
         <>
             <h2 className='team-page-header'>Teams</h2>
-
-            {currentUser && (
-                <div className='create-button-container'>
-                    <button
-                        className='create-review-button'
-                        onClick={() => setModalContent(<CreateTeam id={id}/>)}
-                    >Create A Team
-                    </button>
-                </div>
+            {currentUser && !userHasTeamInLeague && (
+                            <div className='create-button-container'>
+                                <button
+                                    className='create-review-button'
+                                    onClick={() => setModalContent(<CreateTeam id={id}/>)}
+                                >Create A Team
+                                </button>
+                            </div>
             )}
-
             <div className='team-list-container'>
                 {allTeamsArr.length > 0 ? (
                     allTeamsArr.map((team) => (

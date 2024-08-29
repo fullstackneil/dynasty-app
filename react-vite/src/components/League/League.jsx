@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-// import { getAllLeagues } from '../../redux/league';
+
 import { useNavigate } from 'react-router-dom';
 import { fetchAllLeagues } from "../../redux/league"
 // import OwnedLeagues from './OwnedLeagues';
@@ -12,6 +12,8 @@ const League = () => {
     const navigate = useNavigate();
     const currentUser = useSelector((state => state.session.user))
     const allLeagues = useSelector((state) => state.league.allLeaguesArr)
+
+    // const { leagueId } = useParams();
 
     useEffect(() => {
         dispatch(fetchAllLeagues())

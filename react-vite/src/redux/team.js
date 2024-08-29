@@ -79,15 +79,15 @@ export const fetchSingleTeam = (team_id) => async (dispatch) => {
     }
 }
 
-export const createATeam = (user_id, newTeam) => async (dispatch) => {
-    const response = await fetch(`/api/${user_id}/teams/create`, {
+export const createATeam = (league_id, newTeam) => async (dispatch) => {
+    const response = await fetch(`/api/teams/${league_id}/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newTeam),
     });
 
     if (response.ok) {
-        data = await request.json();
+        data = await response.json();
         dispatch(createTeam(data))
         return data
     }

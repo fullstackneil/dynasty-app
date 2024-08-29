@@ -34,6 +34,10 @@ label {
 	padding: 0;
 }
 
+body {
+	background-color: white;
+}
+
 h1,
 h2,
 h3,
@@ -44,22 +48,26 @@ p {
 h1 {
 	font-size: var(--fs-x-large);
 	font-family: var(--ff-headings);
+	/* color: white; */
 }
 
 h2 {
 	font-size: var(--fs-large);
 	font-family: var(--ff-headings);
+	/* color: white; */
 }
 
 h3 {
 	font-size: var(--fs-medium);
 	font-family: var(--ff-primary);
+	/* color: white; */
 }
 
 p,
 label {
 	font-size: var(--fs-small);
 	font-family: var(--ff-primary);
+	/* color: white; */
 }
 
 a {
@@ -70,7 +78,7 @@ a {
 li {
 	list-style: none;
 	font-family: var(--ff-primary);
-	color: grey
+	/* color: white; */
 }
 
 button {

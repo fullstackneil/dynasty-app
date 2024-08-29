@@ -1,5 +1,6 @@
 from flask import Blueprint, redirect, render_template, request
 from flask_login import current_user, login_required
+import random
 from ..models import db, User, League, Team
 from ..forms import TeamForm
 
@@ -29,7 +30,7 @@ def get_all_teams_from_user(id):
 
 #CREATE A TEAM
 @team_routes.route('/<int:id>/create', methods=["POST"])
-def create_team(user_id):
+def create_team(id):
 
     form = TeamForm()
     data = request.get_json()
@@ -37,20 +38,36 @@ def create_team(user_id):
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if not data:
-        return {'Error': 'There was an error processing the form'}
+        return {'Error': 'There was an error processing the form'}, 400
 
     if form.validate_on_submit():
+
+        # Retrieve the league to get the max number of teams
+        league = League.query.get(id)
+
+        if not league:
+            return {'Error': 'League not found'}, 404
+
+        # Get the max number of teams allowed in the league
+        max_teams = league.max_teams
+        existing_positions = {team.draft_position for team in Team.query.filter_by(league_id=id).all()}
+
+        draft_position = random.randint(1, max_teams)
+        while draft_position in existing_positions:
+            draft_position = random.randint(1, max_teams)
+
+
         new_team = Team(
             name = data['name'],
-            league_id = data['league_id'],
-            user_id = user_id,
-            draft_position = data.get('draft_position')  # This will be the random number
+            league_id = id, # Use the league_id from the URL
+            user_id = current_user.id,  # Use the current user's ID (current_user generated from flask_login)
+            draft_position=draft_position  # Random number or user input
         )
 
         db.session.add(new_team)
         db.session.commit()
 
-        return {'Message': 'Team was successfully created.'}
+        return new_team.to_dict(), 200
 
     return {'Error': 'Team was not created.'}
 
