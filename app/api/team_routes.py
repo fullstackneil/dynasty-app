@@ -100,10 +100,10 @@ def update_team(id):
 
 
 #DELETE A TEAM
-@team_routes.route('/<int:id>', methods=["DELETE"])
-def delete_team(id):
+@team_routes.route('/<int:team_id>', methods=["DELETE"])
+def delete_team(team_id):
 
-    team = Team.query.get(id)
+    team = Team.query.get(team_id)
 
     if not team:
         return {'Error': 'This team does not exist.'}
@@ -111,4 +111,4 @@ def delete_team(id):
     db.session.delete(team)
     db.session.commit()
 
-    return {'Message': 'Team was successfully deleted.'}
+    return {'Message': 'Team successfully deleted'}, 200

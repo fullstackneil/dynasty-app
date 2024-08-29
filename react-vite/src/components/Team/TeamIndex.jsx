@@ -4,6 +4,8 @@ import { fetchAllTeamsforLeague } from '../../redux/team';
 import { useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal'
 import CreateTeam from './CreateTeam';
+import DeleteTeam from './DeleteTeam';
+// import UpdateTeam from './UpdateTeam';
 import './TeamIndex.css'
 
 const TeamIndex = () => {
@@ -42,6 +44,21 @@ const TeamIndex = () => {
                                 <h2>{team.name}</h2>
                                 <p>Team Name: {team.name}</p>
                                 <p>Draft Position: {team.draft_position}</p>
+                                {currentUser?.id === team.user_id && (
+                                <>
+                                    <button
+                                    className='delete-button'
+                                    onClick={() => setModalContent(<DeleteTeam teamId={team.id} leagueId={team.league_id}/>)}
+                                    >
+                                    Delete
+                                    </button>
+                                    <button
+                                    className='update-button'
+                                    onClick={() => setModalContent(<UpdateTeam teamId={team.id} leagueId={team.league_id} />)}
+                                    > Edit
+                                    </button>
+                                </>
+                                )}
                             </div>
                         </div>
                     ))
