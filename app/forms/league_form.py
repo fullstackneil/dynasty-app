@@ -1,10 +1,22 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, FloatField, IntegerField, IntegerField, SelectField, SubmitField
-from wtforms.validators import DataRequired, NumberRange, URL
+from wtforms import StringField, IntegerField, SelectField, SubmitField
+from wtforms.validators import DataRequired, NumberRange
 
 class LeagueForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
-    draft_type = SelectField('Choose an option', choices=[('Snake', 'Snake'), ('Auction', 'Auction')], validators=[DataRequired()])
-    scoring_system = SelectField('Choose an Option', choices=[('Standard', 'Standard'), ('Points Per Reception (PPR)', 'Points Per Reception (PPR)'), ('Half PPR', 'Half PPR')], validators=[DataRequired()])
-    max_teams = SelectField('Choose an Option', choices=[('8', '8'), ('10', '10'), ('12', '12'), ('14', '14')], validators=[DataRequired()])
+    name = StringField('League Name', validators=[DataRequired()])
+
+    draft_type = SelectField('Draft Type',
+                             choices=[('Snake', 'Snake'), ('Auction', 'Auction')],
+                             validators=[DataRequired()])
+
+    scoring_system = SelectField('Scoring System',
+                                 choices=[('Standard', 'Standard'),
+                                          ('PPR', 'Points Per Reception (PPR)'),
+                                          ('Half-PPR', 'Half-PPR')],
+                                 validators=[DataRequired()])
+
+    max_teams = SelectField('Max Teams',
+                            choices=[('8', '8'), ('10', '10'), ('12', '12'), ('14', '14'), ('16', '16')],
+                            validators=[DataRequired()])
+
     submit = SubmitField('Submit')

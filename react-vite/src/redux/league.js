@@ -54,16 +54,17 @@ export const fetchAllLeagues = () => async (dispatch) => {
 }
 
 export const fetchSingleLeague = (id) => async (dispatch) => {
-    const response = fetch(`/api/leagues/${id}`)
+    const response = await fetch(`/api/leagues/${id}`)
 
     if (response.ok) {
         const data = await response.json();
         dispatch(getSingleLeague(data))
+        return data;
     }
 }
 
 export const createALeague = (newLeague) => async (dispatch) => {
-    const response = await fetch(`/api/leagues/new`, {
+    const response = await fetch('/api/leagues/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newLeague),
@@ -72,7 +73,7 @@ export const createALeague = (newLeague) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(createLeague(data))
-        return data
+        return data;
     }
 }
 
@@ -86,6 +87,7 @@ export const updateLeague = (newLeague, leagueId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(editLeague(data));
+        return data;
     }
 }
 
@@ -125,12 +127,12 @@ const leagueReducer = (state = initialState, action) => {
 					league.id === action.payload.id ? action.payload : league
 				),
 			};
-            case DELETE_LEAGUE:{
-                return {
-                    ...state,
-                    allLeaguesArr: state.allLeaguesArr.filter((league) => league.id !== action.payload)
-                };
-            }
+        case DELETE_LEAGUE:{
+            return {
+                ...state,
+                allLeaguesArr: state.allLeaguesArr.filter((league) => league.id !== action.payload)
+            };
+        }
         default:
             return state;
     }

@@ -17,15 +17,15 @@ const DeleteTeamForm = ({ teamId, leagueId }) => {
     }
 
     return (
-        <div className='delete-review-container'>
+        <div className='delete-team-container'>
           <h2 className='header-title'>Confirm Delete</h2>
-          <p className='header-message'>Are you sure you want to delete this review?</p>
+          <p className='header-message'>Are you sure you want to delete this team?</p>
           <div className='button-container'>
-            <button className='button-content' id='delete-review' onClick={handleDelete}>Yes</button>
-            <button className='button-content' id='keep-review' onClick={closeModal}>No</button>
+            <button className='button-content' id='delete-team' onClick={handleDelete}>Yes</button>
+            <button className='button-content' id='keep-team' onClick={closeModal}>No</button>
           </div>
         </div>
-      );
+    );
 
 }
 

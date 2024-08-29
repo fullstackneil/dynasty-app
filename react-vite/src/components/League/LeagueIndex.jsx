@@ -1,25 +1,23 @@
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { useNavigate } from 'react-router-dom';
-import { fetchAllLeagues } from "../../redux/league"
-import CreateLeague from './CreateLeague';
-// import OwnedLeagues from './OwnedLeagues';
-import './LeagueIndex.css'
-
+import { fetchAllLeagues } from "../../redux/league";
+import CreateLeagueForm from './CreateLeagueForm';
+import DeleteLeagueForm from './DeleteLeagueForm';
+import UpdateLeagueForm from './UpdateLeagueForm';
+import './LeagueIndex.css';
 
 const LeagueIndex = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { setModalContent } = useModal();
-    const currentUser = useSelector((state => state.session.user))
-    const allLeagues = useSelector((state) => state.league.allLeaguesArr)
-
-    // const { leagueId } = useParams();
+    const currentUser = useSelector(state => state.session.user);
+    const allLeagues = useSelector(state => state.league.allLeaguesArr);
 
     useEffect(() => {
-        dispatch(fetchAllLeagues())
-    }, [dispatch])
+        dispatch(fetchAllLeagues());
+    }, [dispatch]);
 
     return (
         <>
@@ -29,8 +27,9 @@ const LeagueIndex = () => {
                     <div className='create-league-button-container'>
                         <button
                             className='create-league-button'
-                            onClick={() => setModalContent(<CreateLeague />)}
-                        >Create a League
+                            onClick={() => setModalContent(<CreateLeagueForm />)}
+                        >
+                            Create a League
                         </button>
                     </div>
                     <div className='league-list-container'>
@@ -46,6 +45,28 @@ const LeagueIndex = () => {
                                         <p>Draft Type: {league.draft_type}</p>
                                         <p>Scoring: {league.scoring_system}</p>
                                         <p># of Players: {league.max_teams}</p>
+                                        {currentUser?.id === league.commissioner_id && (
+                                            <>
+                                                <button
+                                                    className='delete-button'
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setModalContent(<DeleteLeagueForm leagueId={league.id} />);
+                                                    }}
+                                                >
+                                                    Delete
+                                                </button>
+                                                <button
+                                                    className='update-button'
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setModalContent(<UpdateLeagueForm leagueId={league.id} />);
+                                                    }}
+                                                >
+                                                    Edit
+                                                </button>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             ))
@@ -57,7 +78,7 @@ const LeagueIndex = () => {
             )}
         </>
     );
+};
 
-}
+export default LeagueIndex;
 
-export default LeagueIndex

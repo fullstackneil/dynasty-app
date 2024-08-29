@@ -69,7 +69,7 @@ def edit_league(id):
     form = LeagueForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
-    data = request.json()
+    data = request.get_json()
     league = League.query.get(id)
 
     if not league:
@@ -94,7 +94,7 @@ def edit_league(id):
 
 
 #DELETE A LEAGUE
-@league_routes.route('/<int:id>/delete', methods=["DELETE"])
+@league_routes.route('/<int:id>', methods=["DELETE"])
 def delete_league(id):
 
     league = League.query.get(id)
@@ -105,4 +105,4 @@ def delete_league(id):
     db.session.delete(league)
     db.session.commit()
 
-    return {"Message": "League was successfully deleted"}
+    return {"Message": "League was successfully deleted"}, 200

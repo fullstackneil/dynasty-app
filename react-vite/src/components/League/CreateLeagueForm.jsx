@@ -4,15 +4,15 @@ import { useModal } from '../../context/Modal';
 // import { useNavigate } from 'react-router-dom';
 import { createALeague, fetchAllLeagues } from "../../redux/league";
 
-const CreateLeague = () => {
+const CreateLeagueForm = () => {
     const dispatch = useDispatch();
     // const navigate = useNavigate();
     const { closeModal } = useModal();
 
     const [ name, setName ] = useState('');
-    const [ draft_type, setDraft_Type] = useState();
-    const [ scoring_system, setScoring_System ] = useState();
-    const [ max_teams, setMax_Teams ] = useState();
+    const [ draft_type, setDraft_Type] = useState('');
+    const [ scoring_system, setScoring_System ] = useState('');
+    const [ max_teams, setMax_Teams ] = useState('');
     const [ validations, setValidations ] = useState({});
     const [ formSubmitted, setFormSubmitted ] = useState(false);
 
@@ -49,11 +49,13 @@ const CreateLeague = () => {
     useEffect(() => {
         let validationsObj = {};
         if (!name) validationsObj.name = 'League name is required.'
-        if (!draft_type) validations.draft_type = 'Draft type is required.'
-        if (!scoring_system) validations.scoring_system = 'Scoring system is required.'
-        if (!max_teams) validations.max_teams = 'Max teams amount is required.'
+        if (!draft_type) validationsObj.draft_type = 'Draft type is required.'
+        if (!scoring_system) validationsObj.scoring_system = 'Scoring system is required.'
+        if (!max_teams) validationsObj.max_teams = 'Max teams amount is required.'
         setValidations(validationsObj);
-    }, [dispatch, name, draft_type, scoring_system, max_teams, validations])
+    }, [dispatch, name, draft_type, scoring_system, max_teams])
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -75,12 +77,10 @@ const CreateLeague = () => {
 
             setValidations({});
             setName('');
-            setDraft_Type();
-            setScoring_System();
-            setMax_Teams()
+            setDraft_Type('');
+            setScoring_System('');
+            setMax_Teams('')
             setFormSubmitted(false);
-
-
 
         }
     }
@@ -143,4 +143,4 @@ const CreateLeague = () => {
 
 }
 
-export default CreateLeague
+export default CreateLeagueForm;
