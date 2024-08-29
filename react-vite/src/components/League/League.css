@@ -1,6 +1,7 @@
 .league-page-header {
     padding: 12rem;
-    color: green;
+    color: white;
+	font-size: var(--fs-x-large);
 }
 
 

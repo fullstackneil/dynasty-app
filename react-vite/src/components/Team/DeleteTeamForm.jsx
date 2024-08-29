@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux";
 
 import { deleteATeam, fetchAllTeamsforLeague } from "../../redux/team";
 import { useModal } from "../../context/Modal";
-import './DeleteTeam.css'
+import './DeleteTeamForm.css'
 
-const DeleteTeam = ({ teamId, leagueId }) => {
+const DeleteTeamForm = ({ teamId, leagueId }) => {
 
     const { closeModal } = useModal();
     const dispatch = useDispatch();
@@ -29,4 +29,4 @@ const DeleteTeam = ({ teamId, leagueId }) => {
 
 }
 
-export default DeleteTeam;
+export default DeleteTeamForm;

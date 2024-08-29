@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllTeamsforLeague } from '../../redux/team';
 import { useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal'
-import CreateTeam from './CreateTeam';
-import DeleteTeam from './DeleteTeam';
-// import UpdateTeam from './UpdateTeam';
+import CreateTeamForm from './CreateTeamForm';
+import DeleteTeamForm from './DeleteTeamForm';
+import UpdateTeamForm from './UpdateTeamForm';
 import './TeamIndex.css'
 
 const TeamIndex = () => {
@@ -31,7 +31,7 @@ const TeamIndex = () => {
                             <div className='create-button-container'>
                                 <button
                                     className='create-review-button'
-                                    onClick={() => setModalContent(<CreateTeam id={id}/>)}
+                                    onClick={() => setModalContent(<CreateTeamForm id={id}/>)}
                                 >Create A Team
                                 </button>
                             </div>
@@ -48,13 +48,13 @@ const TeamIndex = () => {
                                 <>
                                     <button
                                     className='delete-button'
-                                    onClick={() => setModalContent(<DeleteTeam teamId={team.id} leagueId={team.league_id}/>)}
+                                    onClick={() => setModalContent(<DeleteTeamForm teamId={team.id} leagueId={team.league_id}/>)}
                                     >
                                     Delete
                                     </button>
                                     <button
                                     className='update-button'
-                                    onClick={() => setModalContent(<UpdateTeam teamId={team.id} leagueId={team.league_id} />)}
+                                    onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
                                     > Edit
                                     </button>
                                 </>

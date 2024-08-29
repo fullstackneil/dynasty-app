@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { fetchAllTeamsforLeague, createATeam } from '../../redux/team';
 
-const CreateTeam = ({id}) => {
+const CreateTeamForm = ({id}) => {
     const [name, setName] = useState('')
     const [validations, setValidations] = useState({})
     const [formSubmitted, setFormSubmitted] = useState(false)
@@ -68,4 +68,4 @@ const CreateTeam = ({id}) => {
 }
 
 
-export default CreateTeam;
+export default CreateTeamForm;

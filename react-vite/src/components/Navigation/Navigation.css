@@ -10,7 +10,7 @@
 	justify-content: center;
 	gap: 0.5rem;
 	padding: 0.5rem;
-	background-color: black;
+	background-color: white;
 }
 
 .navbar-container {
@@ -18,7 +18,7 @@
 	top: 0;
 	left: 0;
 	width: 100%; /* Make the navbar span the full width of the page */
-	background-color: white; /* Set background color */
+	background-color: #282a36;
 	z-index: 1000; /* Ensure the navbar is above other elements */
 	display: flex;
 	justify-content: space-between; /* Adjusted from space-around to space-between */
@@ -26,3 +26,19 @@
 	padding: 0.7rem 2rem; /* Add padding for spacing */
 	box-sizing: border-box; /* Ensure padding is included in the width */
 }
+
+/* Default color for NavLink */
+.navbar-container .nav-link {
+	color: white; /* Default pre-clicked color */
+	text-decoration: none; /* Removes underline from links */
+  }
+
+  /* Active color for the current NavLink */
+  .navbar-container .nav-link.active {
+	color: var(--third-clr); /* Color when clicked or active */
+  }
+
+  /* Optional: Adding some styles for hover effects */
+  .navbar-container .nav-link:hover {
+	color: var(--fourth-clr); /* Color when hovered over */
+  }

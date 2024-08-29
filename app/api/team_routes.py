@@ -80,7 +80,7 @@ def update_team(id):
     team = Team.query.get(id)
 
     if not team:
-        return {'Error': 'This team does not exist.'}
+        return {'Error': 'This team does not exist.'}, 404
 
     if 'name' in data:
         team.name = data['name']

@@ -87,7 +87,7 @@ export const createATeam = (league_id, newTeam) => async (dispatch) => {
     });
 
     if (response.ok) {
-        data = await response.json();
+        const data = await response.json();
         dispatch(createTeam(data))
         return data
     }
@@ -101,7 +101,7 @@ export const updateTeam = (team_id, newTeam) => async (dispatch) => {
     })
 
     if (response.ok) {
-        data = await request.json();
+        const data = await response.json();
         dispatch(editTeam(data))
         return data
     }
@@ -137,13 +137,14 @@ const teamReducer = (state = initialState, action) => {
             return {...state, allTeamsArr: action.payload}
         case CREATE_TEAM:
             return {...state, allTeamsArr: [...state.allTeamsArr, action.payload]}
-        case EDIT_TEAM:
+        case EDIT_TEAM: {
             return {
 				...state,
 				allTeamsArr: state.allTeamsArr.map((team) =>
 					team.id === action.payload.id ? action.payload : team
 				),
 			};
+        }
         case DELETE_TEAM:{
             return {
                 ...state,

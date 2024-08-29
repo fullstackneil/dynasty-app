@@ -17,8 +17,12 @@
 	--ff-headings: 'Montserrat', sans-serif;
 	--ff-primary: 'Roboto Mono', monospace;
 	/* ! COLORS */
-	--accent-clr: #04bd64;
-	--background-clr: black;
+	--first-clr: #51ee71;
+	--second-clr: #e9eba0;;
+	--third-clr: #8ddbf2;
+	--fourth-clr: #e9b054;
+	--fifth-clr: #e5b0f4;
+
 }
 
 body,
@@ -35,39 +39,39 @@ label {
 }
 
 body {
-	background-color: white;
+	background-color: #282a36;
 }
 
 h1,
 h2,
 h3,
 p {
-	color: black;
+	color: var(--second-clr);
 }
 
 h1 {
 	font-size: var(--fs-x-large);
 	font-family: var(--ff-headings);
-	/* color: white; */
+	color: var(--second-clr);
 }
 
 h2 {
 	font-size: var(--fs-large);
 	font-family: var(--ff-headings);
-	/* color: white; */
+	color: var(--second-clr);
 }
 
 h3 {
 	font-size: var(--fs-medium);
 	font-family: var(--ff-primary);
-	/* color: white; */
+	color: var(--second-clr);
 }
 
 p,
 label {
 	font-size: var(--fs-small);
 	font-family: var(--ff-primary);
-	/* color: white; */
+	color: white;
 }
 
 a {

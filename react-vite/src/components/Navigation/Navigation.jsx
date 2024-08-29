@@ -9,16 +9,16 @@ function Navigation() {
       <NavLink className='logo-container' to="/">
         <img src={logo} alt="Home" className="navbar-logo" />
       </NavLink>
-      <NavLink to='/leagues'>
+      <NavLink className='nav-link' to='/leagues'>
         Leagues
       </NavLink>
-      <NavLink to='/teams'>
+      <NavLink className='nav-link' to='/teams'>
         Teams
       </NavLink>
-      <NavLink to='/players'>
+      <NavLink className='nav-link' to='/players'>
         Players
       </NavLink>
-      <NavLink to='/draft'>
+      <NavLink className='nav-link' to='/draft'>
         Draft
       </NavLink>
       <div className='nav-btn-holder'>

@@ -4,12 +4,12 @@
 }
 
 .create-review-button {
-    border: 2px solid black;
-    box-shadow: 2px 2px 2px black;
-    color: black;
+    border: 1px solid;
+    box-shadow: 2px 2px 2px white;
+    color: #282a36;
     font-size: 16px;
     font-weight: bold;
-    background-color: lightgreen;
+	background-color: var(--first-clr);
     justify-content: center;
     height: 55px;
     width: 300px;
@@ -17,7 +17,8 @@
 
 .team-page-header {
     padding: 12rem;
-    color: green;
+    color: white;
+	font-size: var(--fs-x-large);
 }
 
 
