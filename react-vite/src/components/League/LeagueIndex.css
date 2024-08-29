@@ -1,9 +1,25 @@
+.create-league-button-container {
+    padding: 4rem 12rem;
+}
+
+.create-league-button {
+    border: 1px solid;
+    box-shadow: 2px 2px 2px white;
+    color: #282a36;
+    font-size: 16px;
+    font-weight: bold;
+	background-color: var(--first-clr);
+    justify-content: center;
+    height: 55px;
+    width: 300px;
+}
+
 .league-page-header {
-    padding: 12rem;
+    padding-top: 14rem;
+	padding-left: 8rem;
     color: white;
 	font-size: var(--fs-x-large);
 }
-
 
 
 .league-list-container {

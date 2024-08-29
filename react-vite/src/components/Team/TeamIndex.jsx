@@ -28,7 +28,7 @@ const TeamIndex = () => {
         <>
             <h2 className='team-page-header'>Teams</h2>
             {currentUser && !userHasTeamInLeague && (
-                            <div className='create-button-container'>
+                            <div className='create-team-button-container'>
                                 <button
                                     className='create-review-button'
                                     onClick={() => setModalContent(<CreateTeamForm id={id}/>)}

@@ -38,11 +38,10 @@ def get_all_teams_in_league(id):
 
 
 # CREATE A LEAGUE
-@league_routes.route('/<int:id>/new', methods=["POST"])
-def create_league(id):
+@league_routes.route('/new', methods=["POST"])
+def create_league():
 
     form = LeagueForm()
-    user = User.query.get(id)
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
@@ -50,7 +49,7 @@ def create_league(id):
 
         new_league = League(
             name = data['name'],
-            commissioner_id = user.id,
+            commissioner_id = current_user.id,
             draft_type = data['draft_type'],
             scoring_system = data['scoring_system'],
             max_teams = data['max_teams']

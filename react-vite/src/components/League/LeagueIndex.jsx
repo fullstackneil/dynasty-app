@@ -1,15 +1,17 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-
+import { useModal } from '../../context/Modal';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllLeagues } from "../../redux/league"
+import CreateLeague from './CreateLeague';
 // import OwnedLeagues from './OwnedLeagues';
-import './League.css'
+import './LeagueIndex.css'
 
 
-const League = () => {
+const LeagueIndex = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { setModalContent } = useModal();
     const currentUser = useSelector((state => state.session.user))
     const allLeagues = useSelector((state) => state.league.allLeaguesArr)
 
@@ -24,6 +26,13 @@ const League = () => {
             {currentUser && (
                 <>
                     <h2 className='league-page-header'>Leagues</h2>
+                    <div className='create-league-button-container'>
+                        <button
+                            className='create-league-button'
+                            onClick={() => setModalContent(<CreateLeague />)}
+                        >Create a League
+                        </button>
+                    </div>
                     <div className='league-list-container'>
                         {allLeagues.length > 0 ? (
                             allLeagues.map((league) => (
@@ -51,4 +60,4 @@ const League = () => {
 
 }
 
-export default League
+export default LeagueIndex
