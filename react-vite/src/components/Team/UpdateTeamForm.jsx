@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateTeam, fetchSingleTeam, fetchAllTeamsforLeague } from '../../redux/team';
 import { useModal } from '../../context/Modal';
+import './UpdateTeamForm.css'
 
 const UpdateTeamForm = ({ teamId, leagueId }) => {
     const dispatch = useDispatch();
@@ -52,11 +53,12 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
     };
 
     return (
-        <form className='edit-team-container' onSubmit={handleSubmit}>
-            <div className='edit-team-content'>
-                <h2 className="edit-team-title">Update Your Team?</h2>
+        <form className='update-team-form-container' onSubmit={handleSubmit}>
+            <div className='update-team-content'>
+                <h2 className="update-team-title">Change Your Team Name?</h2>
                 {formSubmitted && 'name' in validations && <p className="validation-error-msg">{validations.name}</p>}
-                <label className="edit-team-label">
+                <label className="update-team-label">
+                    New Team Name:
                     <input
                         type="text"
                         placeholder="Team Name"
@@ -67,7 +69,7 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
                     />
                 </label>
                 <button
-                    id='update-button'
+                    className='update-button'
                     type="submit"
                 >
                     Update Your Team

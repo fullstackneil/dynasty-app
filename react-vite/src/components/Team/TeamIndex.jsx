@@ -47,7 +47,7 @@ const TeamIndex = () => {
                                 {currentUser?.id === team.user_id && (
                                 <>
                                     <button
-                                    className='update-button'
+                                    className='edit-button'
                                     onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
                                     > Edit
                                     </button>

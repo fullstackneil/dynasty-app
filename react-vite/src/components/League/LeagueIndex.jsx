@@ -48,7 +48,7 @@ const LeagueIndex = () => {
                                         {currentUser?.id === league.commissioner_id && (
                                             <>
                                                 <button
-                                                    className='update-button'
+                                                    className='edit-button'
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         setModalContent(<UpdateLeagueForm leagueId={league.id} />);

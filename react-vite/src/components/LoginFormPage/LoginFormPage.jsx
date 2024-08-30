@@ -11,7 +11,6 @@ function LoginFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ demo, setDemo ] = useState(false)
   const [errors, setErrors] = useState({});
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
@@ -33,34 +32,27 @@ function LoginFormPage() {
     }
   };
 
-
   const handleDemoUser = async (e) => {
     e.preventDefault();
-    setDemo(true);
 
-    if (demo) {
-      const demoCredentials = {
-        email: "john.doe@example.com",
-        password: "password"
-      }
+    const demoCredentials = {
+      email: "john.doe@example.com",
+      password: "password"
+    };
 
-      const serverResponse = await dispatch(thunkLogin(demoCredentials))
+    const serverResponse = await dispatch(thunkLogin(demoCredentials));
 
-      if (serverResponse) {
-        setErrors(serverResponse);
-      } else {
-        navigate('/leagues');
-      }
-
-      setErrors({})
-      setDemo(false)
-
+    if (serverResponse) {
+      setErrors(serverResponse);
+    } else {
+      navigate('/leagues');
     }
-  }
+
+    setErrors({});
+  };
 
   return (
     <>
-      {/* <h1>Log In</h1> */}
       {errors.length > 0 &&
         errors.map((message) => <p key={message} className='error-message'>{message}</p>)}
       <form onSubmit={handleSubmit} className="form-content">
@@ -89,7 +81,7 @@ function LoginFormPage() {
         {errors.password && <p className='error-message'>{errors.password}</p>}
         <button type="submit" className='button-text'>Log In</button>
         <button className='demo-user-container' id='demo-user-container'
-          type='submit'
+          type='button' // Set to 'button' so it doesn't submit the form
           onClick={handleDemoUser}
           >Log in as Demo User
         </button>
@@ -99,3 +91,4 @@ function LoginFormPage() {
 }
 
 export default LoginFormPage;
+

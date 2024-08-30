@@ -44,3 +44,15 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.edit-button {
+	width: 5rem;
+	background-color: #1f456e;
+	color: white;
+}
+
+.delete-button {
+	width: 5rem;
+	background-color: #ff4d4d;
+	color: white;
+}
