@@ -13,28 +13,16 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(40), nullable=False)
     last_name = db.Column(db.String(40), nullable=False)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     phone_number = db.Column(db.String(10), nullable=False, unique=True)
     image_url = db.Column(db.String(225), nullable=True)
     password = db.Column(db.String(30), nullable=False)
-    hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
     leagues = db.relationship('League', back_populates='commissioner', cascade='all, delete-orphan')
     teams = db.relationship('Team', back_populates='user', cascade='all, delete-orphan')
-
-    @property
-    def password(self):
-        return self.hashed_password
-
-    @password.setter
-    def password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
 
     def to_dict(self):
         return {
