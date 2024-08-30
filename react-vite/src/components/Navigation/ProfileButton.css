@@ -8,3 +8,10 @@
     border: none;
     color: var(--third-clr);
 }
+
+.logout-button {
+    width: 6rem;
+    border: 2px solid black;
+    background-color: var(--third-clr);
+    color: black;
+}

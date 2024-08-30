@@ -8,7 +8,7 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const [name, setName] = useState('');
-    const [formSubmitted, setFormSubmitted] = useState(true);
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [validations, setValidations] = useState({});
 
     const currentUser = useSelector((state) => state.session.user);
@@ -31,6 +31,7 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setFormSubmitted(true);
 
         if (Object.values(validations).length === 0) {
             const newTeam = {
