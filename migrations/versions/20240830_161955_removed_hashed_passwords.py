@@ -23,7 +23,7 @@ def upgrade():
         batch_op.add_column(sa.Column('password', sa.String(length=30), nullable=True))
 
         # If you want to set a default value temporarily, you can uncomment the next line
-        # batch_op.execute('UPDATE users SET password = "defaultpassword" WHERE password IS NULL')
+        batch_op.execute('UPDATE users SET password = "password" WHERE password IS NULL')
 
         # Alter the column to be non-nullable
         batch_op.alter_column('password', nullable=False)
