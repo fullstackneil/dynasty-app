@@ -53,24 +53,26 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
 
     return (
         <form className='edit-team-container' onSubmit={handleSubmit}>
-            <h2 className="edit-team-title">Update Your Team?</h2>
-            {formSubmitted && 'name' in validations && <p className="error-message">{validations.name}</p>}
-            <label className="edit-team-label">
-                <input
-                    type="text"
-                    placeholder="Team Name"
-                    className="team-input"
-                    id='input-text-box'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            <button
-                id='update-button'
-                type="submit"
-            >
-                Update Your Team
-            </button>
+            <div className='edit-team-content'>
+                <h2 className="edit-team-title">Update Your Team?</h2>
+                {formSubmitted && 'name' in validations && <p className="validation-error-msg">{validations.name}</p>}
+                <label className="edit-team-label">
+                    <input
+                        type="text"
+                        placeholder="Team Name"
+                        className="team-input"
+                        id='input-text-box'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+                <button
+                    id='update-button'
+                    type="submit"
+                >
+                    Update Your Team
+                </button>
+            </div>
         </form>
     );
 };

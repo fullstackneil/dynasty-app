@@ -25,7 +25,11 @@
 .league-list-container {
 	padding: 2rem 12rem;
     display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6rem;
+}
+
+.league-info-text {
 	gap: 6rem;
 }
 
@@ -36,9 +40,23 @@
 	flex-direction: row; /* Ensure the image and text are side by side */
 	border-radius: 12px;
 	transition: box-shadow 0.3s ease;
-	height: auto;
+	height: 12rem;
 	max-height: 200px;
 	cursor: pointer;
-	width: 600px;
+	width: 450px;
 	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+}
+
+.update-button {
+	width: 5rem;
+	background-color: #1f456e;
+	color: white;
+}
+
+.delete-button {
+	width: 5rem;
+	background-color: #ff4d4d;
+	color: white;
 }

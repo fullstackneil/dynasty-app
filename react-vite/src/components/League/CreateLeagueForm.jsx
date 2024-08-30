@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 // import { useNavigate } from 'react-router-dom';
 import { createALeague, fetchAllLeagues } from "../../redux/league";
+import './CreateLeagueForm.css'
 
 const CreateLeagueForm = () => {
     const dispatch = useDispatch();
@@ -88,52 +89,54 @@ const CreateLeagueForm = () => {
 
 
     return (
-        <form className='league-form' onSubmit={handleSubmit}>
-            <h2 className='league-form-title'>Create a League</h2>
-            <label className='league-name-label'>
-                League Name:
-                <input
-                    className='league-name-input'
-                    type='text'
-                    placeholder='League Name'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            {formSubmitted && 'name' in validations && <p className='name-validation-error'>{validations.name}</p>}
-            <label htmlFor='league-draft-type-label'>
-                Draft Type:
-                <select className='league-draft-type-input'
-                        value={draft_type}
-                        onChange={(e) => setDraft_Type(e.target.value)}>
-                    <option value=''>Please choose an option...</option>
-                    {draftTypeOptions}
-                </select>
-            </label>
-            {formSubmitted && 'draft_type' in validations && <p className='draft-type-validation-error'>{validations.draft_type}</p>}
-            <label htmlFor='league-scoring-system-label'>
-                Scoring System:
-                <select className='league-scoring-system-input'
-                    value={scoring_system}
-                    onChange={(e) => setScoring_System(e.target.value)}>
-                    <option value=''>Please choose an option...</option>
-                    {scoringSystemOptions}
-                </select>
-            </label>
-            {formSubmitted && 'scoring_system' in validations && <p className='scoring-system-validation-error'>{validations.scoring_system}</p>}
-            <label htmlFor='league-max-teams-label'>
-                Max Teams:
-                    <select className='league-max-teams-input'
-                        value={max_teams}
-                        onChange={(e) => setMax_Teams(e.target.value)}>
+        <form className='league-form-container' onSubmit={handleSubmit}>
+            <div className='league-form-content'>
+                <h2 className='league-form-title'>Create a League</h2>
+                <label className='league-name-label'>
+                    League Name:
+                    <input
+                        className='league-name-input'
+                        type='text'
+                        placeholder='League Name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+                {formSubmitted && 'name' in validations && <p className='validation-error-msg'>{validations.name}</p>}
+                <label htmlFor='league-draft-type-label'>
+                    Draft Type:
+                    <select className='league-draft-type-input'
+                            value={draft_type}
+                            onChange={(e) => setDraft_Type(e.target.value)}>
                         <option value=''>Please choose an option...</option>
-                        {maxTeamsOptions}
+                        {draftTypeOptions}
                     </select>
-            </label>
-            {formSubmitted && 'max_teams' in validations && <p className='max-team-validation-error'>{validations.max_teams}</p>}
-            <button className='submit-button' type='submit'>
-                Submit
-            </button>
+                </label>
+                {formSubmitted && 'draft_type' in validations && <p className='validation-error-msg'>{validations.draft_type}</p>}
+                <label htmlFor='league-scoring-system-label'>
+                    Scoring System:
+                    <select className='league-scoring-system-input'
+                        value={scoring_system}
+                        onChange={(e) => setScoring_System(e.target.value)}>
+                        <option value=''>Please choose an option...</option>
+                        {scoringSystemOptions}
+                    </select>
+                </label>
+                {formSubmitted && 'scoring_system' in validations && <p className='validation-error-msg'>{validations.scoring_system}</p>}
+                <label htmlFor='league-max-teams-label'>
+                    Max Teams:
+                        <select className='league-max-teams-input'
+                            value={max_teams}
+                            onChange={(e) => setMax_Teams(e.target.value)}>
+                            <option value=''>Please choose an option...</option>
+                            {maxTeamsOptions}
+                        </select>
+                </label>
+                {formSubmitted && 'max_teams' in validations && <p className='validation-error-msg'>{validations.max_teams}</p>}
+                <button className='submit-button' type='submit'>
+                    Submit
+                </button>
+            </div>
         </form>
 
     )

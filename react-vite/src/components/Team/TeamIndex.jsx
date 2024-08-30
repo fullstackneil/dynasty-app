@@ -30,7 +30,7 @@ const TeamIndex = () => {
             {currentUser && !userHasTeamInLeague && (
                             <div className='create-team-button-container'>
                                 <button
-                                    className='create-review-button'
+                                    className='create-team-button'
                                     onClick={() => setModalContent(<CreateTeamForm id={id}/>)}
                                 >Create A Team
                                 </button>
@@ -47,15 +47,15 @@ const TeamIndex = () => {
                                 {currentUser?.id === team.user_id && (
                                 <>
                                     <button
+                                    className='update-button'
+                                    onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
+                                    > Edit
+                                    </button>
+                                    <button
                                     className='delete-button'
                                     onClick={() => setModalContent(<DeleteTeamForm teamId={team.id} leagueId={team.league_id}/>)}
                                     >
                                     Delete
-                                    </button>
-                                    <button
-                                    className='update-button'
-                                    onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
-                                    > Edit
                                     </button>
                                 </>
                                 )}

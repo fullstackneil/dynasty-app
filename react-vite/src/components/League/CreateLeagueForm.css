@@ -1,0 +1,49 @@
+.league-form-container {
+    background-color: var(--background-clr);
+    border: 2px white;
+    border-radius: 10px white;
+    color: black;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .league-form-title {
+    color: var(--second-clr);
+    font-family: var(--ff-primary);
+  }
+
+  .league-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 20rem;
+  }
+
+  .league-name-input {
+    background-color: white;
+    width: 15rem;
+    height: 1.5rem;
+  }
+
+  .submit-button {
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px black;
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--second-clr);
+    justify-content: center;
+    height: 3rem;
+    width: 15rem;
+  }
+
+  .validation-error-msg {
+    color: var(--third-clr);
+  }

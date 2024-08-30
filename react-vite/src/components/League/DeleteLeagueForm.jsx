@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { deleteALeague, fetchAllLeagues } from '../../redux/league';
+import './DeleteLeagueForm.css'
 
 
 const DeleteLeagueForm = ({leagueId}) => {

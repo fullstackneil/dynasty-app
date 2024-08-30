@@ -41,21 +41,12 @@ const LeagueIndex = () => {
                                     className='league-spot-container'
                                 >
                                     <div className='league-info-text'>
-                                        <h2>{league.name}</h2>
-                                        <p>Draft Type: {league.draft_type}</p>
-                                        <p>Scoring: {league.scoring_system}</p>
-                                        <p># of Players: {league.max_teams}</p>
+                                        <h2 className='league-name-text'>{league.name}</h2>
+                                        <p className='draft-type-text'>Draft Type: {league.draft_type}</p>
+                                        <p className='scoring-text'>Scoring: {league.scoring_system}</p>
+                                        <p className='max-teams-text'># of Players: {league.max_teams}</p>
                                         {currentUser?.id === league.commissioner_id && (
                                             <>
-                                                <button
-                                                    className='delete-button'
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setModalContent(<DeleteLeagueForm leagueId={league.id} />);
-                                                    }}
-                                                >
-                                                    Delete
-                                                </button>
                                                 <button
                                                     className='update-button'
                                                     onClick={(e) => {
@@ -64,6 +55,15 @@ const LeagueIndex = () => {
                                                     }}
                                                 >
                                                     Edit
+                                                </button>
+                                                <button
+                                                    className='delete-button'
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setModalContent(<DeleteLeagueForm leagueId={league.id} />);
+                                                    }}
+                                                >
+                                                    Delete
                                                 </button>
                                             </>
                                         )}
@@ -81,4 +81,3 @@ const LeagueIndex = () => {
 };
 
 export default LeagueIndex;
-

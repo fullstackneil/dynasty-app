@@ -1,0 +1,10 @@
+.profile-icon {
+    font-size: 3rem;
+}
+
+.profile-icon-button {
+    font-size: 2rem;
+    background: var(--background-clr);
+    border: none;
+    color: var(--third-clr);
+}

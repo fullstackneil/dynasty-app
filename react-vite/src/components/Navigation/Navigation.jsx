@@ -6,7 +6,7 @@ import "./Navigation.css";
 function Navigation() {
   return (
     <nav className='navbar-container'>
-      <NavLink className='logo-container' to="/">
+      <NavLink className='logo-container' to="/leagues">
         <img src={logo} alt="Home" className="navbar-logo" />
       </NavLink>
       <NavLink className='nav-link' to='/leagues'>

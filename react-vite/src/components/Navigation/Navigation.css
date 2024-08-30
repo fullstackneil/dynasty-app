@@ -42,3 +42,11 @@
   .navbar-container .nav-link:hover {
 	color: var(--fourth-clr); /* Color when hovered over */
   }
+
+  .nav-btn-holder {
+    height: 5rem;
+    width: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
