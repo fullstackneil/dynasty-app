@@ -13,6 +13,7 @@ function SignupFormPage() {
   const [first_name, setFirst_Name] = useState("");
   const [last_name, setLast_Name] = useState("");
   const [phone_number, setPhone_Number] = useState("");
+  const [image_url, setImage_URL] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +27,7 @@ function SignupFormPage() {
     if (first_name.trim() === "") validationsObj.first_name = "First name is required.";
     if (last_name.trim() === "") validationsObj.last_name = "Last name is required.";
     if (phone_number.trim() === "") validationsObj.phone_number = "Phone Number is required.";
+    if (image_url.length > 225) validationsObj.image_url = "URL must be within 225 characters."
     if (email.trim() === "") validationsObj.email = "Email is required.";
     if (username.trim() === "") validationsObj.username = "Username is required.";
     if (password.trim() === "") validationsObj.password = "Password is required.";
@@ -37,7 +39,7 @@ function SignupFormPage() {
     if (password.length > 30) validationsObj.password = "Password must be within 30 characters.";
 
     setValidations(validationsObj);
-  }, [first_name, last_name, phone_number, email, username, password, confirmPassword]);
+  }, [first_name, last_name, phone_number, image_url, email, username, password, confirmPassword]);
 
 
   const handleSubmit = async (e) => {
@@ -50,6 +52,7 @@ function SignupFormPage() {
           first_name,
           last_name,
           phone_number,
+          image_url,
           email,
           username,
           password,
@@ -150,6 +153,16 @@ function SignupFormPage() {
             />
           </label>
           {formSubmitted && validations.confirmPassword && <p className='validation-error-msg'>{validations.confirmPassword}</p>}
+          <label>
+            Profile Picture URL
+            <input
+              className='input-section'
+              type="text"
+              value={image_url}
+              onChange={(e) => setImage_URL(e.target.value)}
+            />
+          </label>
+          {formSubmitted && validations.image_url && <p className='validation-error-msg'>{validations.image_url}</p>}
           <button type="submit" className='submit-button'>Sign Up</button>
         </div>
       </form>
