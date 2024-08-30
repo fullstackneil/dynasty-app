@@ -76,6 +76,7 @@ export const fetchSingleTeam = (team_id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(getSingleTeam(data))
+        return data;
     }
 }
 

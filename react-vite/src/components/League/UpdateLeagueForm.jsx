@@ -52,7 +52,7 @@ const UpdateLeagueForm = ({ leagueId }) => {
                 setScoring_System(data.scoring_system)
                 setMax_Teams(data.max_teams)
             }
-            console.log('data >>>>>>>>>>>>>>>>>', data)
+        
         }
         fetchLeague();
     }, [dispatch, leagueId])
