@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import logo from '../../../assets/dynasty-app.svg'
 import "./LoginForm.css";
+import SignupFormPage from "../SignupFormPage";
+import { useModal } from "../../context/Modal";
 
 function LoginFormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { setModalContent } = useModal();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,6 +83,11 @@ function LoginFormPage() {
         </label>
         {errors.password && <p className='error-message'>{errors.password}</p>}
         <button type="submit" className='button-text'>Log In</button>
+        <button type="button"
+                className='button-text'
+                onClick={() => setModalContent(<SignupFormPage />)}>
+          Sign Up
+        </button>
         <button className='demo-user-container' id='demo-user-container'
           type='button' // Set to 'button' so it doesn't submit the form
           onClick={handleDemoUser}
@@ -91,4 +99,3 @@ function LoginFormPage() {
 }
 
 export default LoginFormPage;
-

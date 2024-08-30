@@ -40,7 +40,7 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
-    navigate('/')
+    navigate('/login')
 
   };
 
