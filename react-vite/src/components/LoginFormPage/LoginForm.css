@@ -1,22 +1,67 @@
+
+.logo-container {
+    justify-content: center;
+}
+
+.home-page {
+    align-items: center;
+    border: 4px black;
+    justify-content: center;
+}
+
 .form-content {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.email-text {
+    font-size: 18px;
 }
 
 .input-text {
     font-family: 'Nunito', sans-serif;
+    font-size: 18px;
     background-color: black;
-    color: #FFE81F;
+    color: var(--second-clr);
+    width: 100%;
+    height: 1.5rem;
+}
+
+.credential-text {
+    gap: 1rem;
+    font-size: 18px;
 }
 
 .password-text {
     font-family: 'Nunito', sans-serif;
     background-color: black;
-    color: #FFE81F;
+    font-size: 18px;
+    color: var(--second-clr);
+    width: 100%;
+    height: 1.5rem;
 }
 
 .button-text {
     font-family: 'Nunito', sans-serif;
-    background-color: black;
-    color: #FFE81F;
+    font-size: 18px;
+    margin: auto;
+    width: 400px;
+    height: 50px;
+    box-shadow: 2px 2px 2px white;
+    background-color: var(--second-clr);
+}
+
+.error-message {
+    color: var(--third-clr);
+}
+
+#demo-user-container {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    margin: auto;
+    width: 400px;
+    height: 50px;
+    box-shadow: 2px 2px 2px white;
+    background-color: var(--third-clr);
 }
