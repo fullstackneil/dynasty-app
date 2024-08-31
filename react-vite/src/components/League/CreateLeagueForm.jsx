@@ -54,7 +54,7 @@ const CreateLeagueForm = () => {
         if (!scoring_system) validationsObj.scoring_system = 'Scoring system is required.'
         if (!max_teams) validationsObj.max_teams = 'Max teams amount is required.'
         setValidations(validationsObj);
-    }, [dispatch, name, draft_type, scoring_system, max_teams])
+    }, [ name, draft_type, scoring_system, max_teams])
 
 
 
