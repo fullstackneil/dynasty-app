@@ -71,10 +71,9 @@ const CreateLeagueForm = () => {
                 max_teams
             }
 
-            dispatch(createALeague(newLeague));
-            dispatch(fetchAllLeagues());
-
-            closeModal();
+            dispatch(createALeague(newLeague))
+            .then(closeModal())
+            .then(() => dispatch(fetchAllLeagues()));
 
             setValidations({});
             setName('');

@@ -80,10 +80,9 @@ const UpdateLeagueForm = ({ leagueId }) => {
                 max_teams
             }
 
-            dispatch(updateLeague(newLeague, leagueId));
-            dispatch(fetchAllLeagues());
-
-            closeModal();
+            dispatch(updateLeague(newLeague, leagueId))
+            .then(closeModal())
+            .then(dispatch(fetchAllLeagues()));
 
             setValidations({});
             setName('');

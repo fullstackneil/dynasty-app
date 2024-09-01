@@ -13,9 +13,10 @@ class League(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
     commissioner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    draft_type = db.Column(db.String(20))
-    scoring_system = db.Column(db.String(20))
+    draft_type = db.Column(db.String(30))
+    scoring_system = db.Column(db.String(30))
     max_teams = db.Column(db.Integer)
+    image_url = db.Column(db.String(300), nullable=True)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
@@ -33,4 +34,5 @@ class League(db.Model):
             'draft_type': self.draft_type,
             'scoring_system': self.scoring_system,
             'max_teams': self.max_teams,
+            'image_url': self.image_url
         }

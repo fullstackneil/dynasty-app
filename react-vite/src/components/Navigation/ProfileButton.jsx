@@ -38,10 +38,9 @@ function ProfileButton() {
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(thunkLogout());
-    closeMenu();
-    navigate('/login')
-
+    dispatch(thunkLogout())
+    .then(closeMenu())
+    .then(navigate('/login'))
   };
 
   return (

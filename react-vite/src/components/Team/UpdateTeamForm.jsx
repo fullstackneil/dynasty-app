@@ -40,10 +40,9 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
                 user_id: currentUser.id,
             };
 
-            await dispatch(updateTeam(teamId, newTeam));
-            await dispatch(fetchAllTeamsforLeague(leagueId));
-
-            closeModal();
+            dispatch(updateTeam(teamId, newTeam))
+            .then(closeModal())
+            .then(dispatch(fetchAllTeamsforLeague(leagueId)));
 
             setName('');
             setValidations({});

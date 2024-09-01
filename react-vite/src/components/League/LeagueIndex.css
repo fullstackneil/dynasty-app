@@ -30,23 +30,40 @@
 }
 
 .league-info-text {
-	gap: 6rem;
+	flex: 1;
 }
 
 .league-spot-container {
 	position: relative;
 	border: solid 2px gray;
-	display: flex;
-	flex-direction: row; /* Ensure the image and text are side by side */
+	display: grid;
+	grid-template-columns: repeat(1, 2fr);
 	border-radius: 12px;
 	transition: box-shadow 0.3s ease;
 	height: 12rem;
 	max-height: 200px;
 	cursor: pointer;
 	width: 450px;
-	overflow: hidden;
+	/* overflow: hidden; */
 	align-items: center;
 	justify-content: center;
+}
+
+.league-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.league-image-container {
+    flex-shrink: 0; /* Prevents the image container from shrinking */
+    margin-left: 20px; /* Adds some space between the text and the image */
+}
+
+.league-image {
+    max-width: 10rem; /* Adjust the size of the image as needed */
+    height: auto; /* Keeps the aspect ratio */
+    border-radius: 8px; /* Optional: adds rounded corners to the image */
 }
 
 .edit-button {

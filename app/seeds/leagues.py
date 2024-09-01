@@ -10,7 +10,8 @@ def seed_leagues():
             commissioner_id=1,
             draft_type="Snake",
             scoring_system="PPR",
-            max_teams=12
+            max_teams=12,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/01._Gridiron_Glory_wofrqz.jpg'
         ),
         League(
             id=2,
@@ -18,7 +19,8 @@ def seed_leagues():
             commissioner_id=2,
             draft_type="Auction",
             scoring_system="Standard",
-            max_teams=10
+            max_teams=10,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/02._Fantasy_Legends_bxd5p3.jpg'
         ),
         League(
             id=3,
@@ -26,7 +28,8 @@ def seed_leagues():
             commissioner_id=3,
             draft_type="Snake",
             scoring_system="PPR",
-            max_teams=14
+            max_teams=14,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/03._Champions_League_fwvyub.jpg'
         ),
         League(
             id=4,
@@ -34,7 +37,8 @@ def seed_leagues():
             commissioner_id=4,
             draft_type="Snake",
             scoring_system="Half-PPR",
-            max_teams=12
+            max_teams=12,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/04._Elite_League_dzyexy.jpg'
         ),
         League(
             id=5,
@@ -42,7 +46,8 @@ def seed_leagues():
             commissioner_id=5,
             draft_type="Auction",
             scoring_system="Standard",
-            max_teams=10
+            max_teams=10,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/05._Gridiron_Titans_fyutx7.jpg'
         ),
         League(
             id=6,
@@ -50,7 +55,8 @@ def seed_leagues():
             commissioner_id=6,
             draft_type="Snake",
             scoring_system="PPR",
-            max_teams=16
+            max_teams=16,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/06._Dynasty_Warriors_zimnjs.jpg'
         ),
         League(
             id=7,
@@ -58,7 +64,8 @@ def seed_leagues():
             commissioner_id=7,
             draft_type="Auction",
             scoring_system="Half-PPR",
-            max_teams=12
+            max_teams=12,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/07._The_Legends_League_fgecpq.jpg'
         ),
         League(
             id=8,
@@ -66,7 +73,8 @@ def seed_leagues():
             commissioner_id=8,
             draft_type="Snake",
             scoring_system="Standard",
-            max_teams=14
+            max_teams=14,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/08._Fantasy_Football_Frenzy_wefd3c.jpg'
         ),
         League(
             id=9,
@@ -74,7 +82,8 @@ def seed_leagues():
             commissioner_id=9,
             draft_type="Snake",
             scoring_system="PPR",
-            max_teams=10
+            max_teams=10,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/09._Gridiron_Masters_gr611x.jpg'
         ),
         League(
             id=10,
@@ -82,7 +91,8 @@ def seed_leagues():
             commissioner_id=10,
             draft_type="Auction",
             scoring_system="Half-PPR",
-            max_teams=12
+            max_teams=12,
+            image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136282/10._Ultimate_Football_League_ksd0cf.jpg'
         )
     ]
 
