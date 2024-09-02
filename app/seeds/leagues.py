@@ -5,7 +5,7 @@ def seed_leagues():
 
     leagues = [
         League(
-            id=1,
+            # id=1,
             name="Gridiron Glory",
             commissioner_id=1,
             draft_type="Snake",
@@ -14,7 +14,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/01._Gridiron_Glory_wofrqz.jpg'
         ),
         League(
-            id=2,
+            # id=2,
             name="Fantasy Legends",
             commissioner_id=2,
             draft_type="Auction",
@@ -23,7 +23,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/02._Fantasy_Legends_bxd5p3.jpg'
         ),
         League(
-            id=3,
+            # id=3,
             name="Champions League",
             commissioner_id=3,
             draft_type="Snake",
@@ -32,7 +32,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/03._Champions_League_fwvyub.jpg'
         ),
         League(
-            id=4,
+            # id=4,
             name="The Elite League",
             commissioner_id=4,
             draft_type="Snake",
@@ -41,7 +41,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/04._Elite_League_dzyexy.jpg'
         ),
         League(
-            id=5,
+            # id=5,
             name="Gridiron Titans",
             commissioner_id=5,
             draft_type="Auction",
@@ -50,7 +50,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/05._Gridiron_Titans_fyutx7.jpg'
         ),
         League(
-            id=6,
+            # id=6,
             name="Dynasty Warriors",
             commissioner_id=6,
             draft_type="Snake",
@@ -59,7 +59,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136284/06._Dynasty_Warriors_zimnjs.jpg'
         ),
         League(
-            id=7,
+            # id=7,
             name="The Legends League",
             commissioner_id=7,
             draft_type="Auction",
@@ -68,7 +68,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/07._The_Legends_League_fgecpq.jpg'
         ),
         League(
-            id=8,
+            # id=8,
             name="Fantasy Football Frenzy",
             commissioner_id=8,
             draft_type="Snake",
@@ -77,7 +77,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136286/08._Fantasy_Football_Frenzy_wefd3c.jpg'
         ),
         League(
-            id=9,
+            # id=9,
             name="Gridiron Masters",
             commissioner_id=9,
             draft_type="Snake",
@@ -86,7 +86,7 @@ def seed_leagues():
             image_url='https://res.cloudinary.com/dw0k7r34f/image/upload/v1725136283/09._Gridiron_Masters_gr611x.jpg'
         ),
         League(
-            id=10,
+            # id=10,
             name="Ultimate Football League",
             commissioner_id=10,
             draft_type="Auction",
