@@ -63,11 +63,11 @@ export const fetchSingleLeague = (id) => async (dispatch) => {
     }
 }
 
-export const createALeague = (newLeague) => async (dispatch) => {
+export const createALeague = (formData) => async (dispatch) => {
     const response = await fetch('/api/leagues/new', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newLeague),
+        // headers: { 'Content-Type': 'application/json' },
+        body: formData
     });
 
     if (response.ok) {

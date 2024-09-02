@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 // import { useNavigate } from 'react-router-dom';
 import { createALeague, fetchAllLeagues } from "../../redux/league";
-import { createPost } from "../../redux/image";
+// import { createPost } from "../../redux/image";
 import './CreateLeagueForm.css'
 
 const CreateLeagueForm = () => {
@@ -65,41 +65,38 @@ const CreateLeagueForm = () => {
         setFormSubmitted(true)
 
         if (Object.values(validations).length === 0) {
-            console.log(image);
-            let imageUrl = null;
-            if (image) {
                 const formData = new FormData();
+                formData.append("name", name);
+                formData.append("draft_type", draft_type);
+                formData.append("scoring_system", scoring_system);
+                formData.append("max_teams", max_teams);
                 formData.append("image", image);
+
                 setImageLoading(true);
-                const response = await dispatch(createPost(formData));
-                console.log('Uploaded Image:', response);
+                await dispatch(createALeague(formData))
+                .then(() => dispatch(fetchAllLeagues()))
+                .then(() => closeModal())
                 setImageLoading(false);
 
-                imageUrl = response?.image
+                setValidations({});
+                setName('');
+                setDraft_Type('');
+                setScoring_System('');
+                setMax_Teams('')
+                setImage(null);
+                setFormSubmitted(false);
+
             }
 
-            const newLeague = {
-                name,
-                draft_type,
-                scoring_system,
-                max_teams,
-                image_url: imageUrl
-            }
-
-            dispatch(createALeague(newLeague))
-            .then(() => dispatch(fetchAllLeagues()))
-            .then(() => closeModal());
-
-            setValidations({});
-            setName('');
-            setDraft_Type('');
-            setScoring_System('');
-            setMax_Teams('')
-            setImage(null);
-            setFormSubmitted(false);
+            // const newLeague = {
+            //     name,
+            //     draft_type,
+            //     scoring_system,
+            //     max_teams,
+            //     image_url: imageUrl
+            // }
 
         }
-    }
 
 
 

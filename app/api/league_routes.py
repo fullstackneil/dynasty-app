@@ -46,6 +46,18 @@ def create_league():
 
     if form.validate_on_submit():
         data = form.data
+        print('Form Data >>>>>>>', data)
+
+        image = request.files.get('image')
+
+        image.filename = get_unique_filename(image.filename)
+        upload_result = upload_file_to_s3(image)
+
+        if 'url' not in upload_result:
+                print(f"Error: File upload failed with result {upload_result}")
+                return ({"errors": upload_result.get('errors', 'File upload failed')}), 400
+
+        print(f"Image uploaded successfully: {upload_result['url']}")
 
         new_league = League(
             name = data['name'],
@@ -53,9 +65,10 @@ def create_league():
             draft_type = data['draft_type'],
             scoring_system = data['scoring_system'],
             max_teams = data['max_teams'],
-            image_url = data['image_url']
+            image_url = upload_result['url']
         )
 
+        print('New league >>>>>>>>>>>>>>>>>>>>>', new_league)
         db.session.add(new_league)
         db.session.commit()
 
