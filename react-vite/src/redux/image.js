@@ -15,14 +15,16 @@ export const addPost = (data) => {
 //THUNKS
 
 export const createPost = (post) => async (dispatch) => {
-    const response = await fetch(`/images/new`, {
+    console.log('IN CREATE IMAGE THUNK')
+    const response = await fetch(`/api/images/new`, {
       method: "POST",
       body: post
     });
 
     if (response.ok) {
-        const { resPost } = await response.json();
-        dispatch(addPost(resPost));
+        const data = await response.json();
+        dispatch(addPost(data.image));
+        return data.image;
     } else {
         console.log("There was an error making your post!")
     }
@@ -39,8 +41,9 @@ const imageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             return {...state, addPost: action.payload}
+    default:
+        return state
     }
-    return state
 };
 
 export default imageReducer

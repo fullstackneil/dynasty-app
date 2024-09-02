@@ -81,8 +81,8 @@ const UpdateLeagueForm = ({ leagueId }) => {
             }
 
             dispatch(updateLeague(newLeague, leagueId))
+            .then(dispatch(fetchAllLeagues()))
             .then(closeModal())
-            .then(dispatch(fetchAllLeagues()));
 
             setValidations({});
             setName('');

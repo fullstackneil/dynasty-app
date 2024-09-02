@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 // import { useNavigate } from 'react-router-dom';
 import { createALeague, fetchAllLeagues } from "../../redux/league";
+import { createPost } from "../../redux/image";
 import './CreateLeagueForm.css'
 
 const CreateLeagueForm = () => {
@@ -14,11 +15,12 @@ const CreateLeagueForm = () => {
     const [ draft_type, setDraft_Type] = useState('');
     const [ scoring_system, setScoring_System ] = useState('');
     const [ max_teams, setMax_Teams ] = useState('');
+    const [ image, setImage ]= useState(null);
+    const [ imageLoading, setImageLoading ] = useState(false);
     const [ validations, setValidations ] = useState({});
     const [ formSubmitted, setFormSubmitted ] = useState(false);
 
     const allLeagues = useSelector((state) => state.league.allLeaguesArr)
-
 
     // DRAFT TYPE OPTIONS - Displaying various draft options
     const draftTypes = allLeagues.map((league => league.draft_type))
@@ -58,28 +60,43 @@ const CreateLeagueForm = () => {
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true)
 
         if (Object.values(validations).length === 0) {
+            let imageUrl = null;
+
+            if (image) {
+                const formData = new FormData();
+                formData.append("image", image);
+                setImageLoading(true);
+                const response = await dispatch(createPost(formData));
+                console.log('Uploaded Image:', response);
+                setImageLoading(false);
+
+                imageUrl = response?.image
+
+            }
 
             const newLeague = {
                 name,
                 draft_type,
                 scoring_system,
-                max_teams
+                max_teams,
+                image_url: imageUrl
             }
 
             dispatch(createALeague(newLeague))
-            .then(closeModal())
-            .then(() => dispatch(fetchAllLeagues()));
+            .then(() => dispatch(fetchAllLeagues()))
+            .then(closeModal());
 
             setValidations({});
             setName('');
             setDraft_Type('');
             setScoring_System('');
             setMax_Teams('')
+            setImage(null);
             setFormSubmitted(false);
 
         }
@@ -88,7 +105,7 @@ const CreateLeagueForm = () => {
 
 
     return (
-        <form className='league-form-container' onSubmit={handleSubmit}>
+        <form className='league-form-container' encType="multipart/form-data" onSubmit={handleSubmit}>
             <div className='league-form-content'>
                 <h2 className='league-form-title'>Create a League</h2>
                 <label className='league-name-label'>
@@ -102,6 +119,15 @@ const CreateLeagueForm = () => {
                     />
                 </label>
                 {formSubmitted && 'name' in validations && <p className='validation-error-msg'>{validations.name}</p>}
+                <label className='league-image-label'>
+                    Upload Leage Profile Pic:
+                    <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setImage(e.target.files[0])}
+                    />
+                </label>
+                {imageLoading && <p>Loading...</p>}
                 <label htmlFor='league-draft-type-label'>
                     Draft Type:
                     <select className='league-draft-type-input'

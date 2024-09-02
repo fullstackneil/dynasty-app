@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, request
-from app.forms.forms import ImageForm
+from app.forms.image_form import ImageForm
 from app.models import db, Image
 from flask_login import current_user, login_required
 from app.api.aws_utils import (
@@ -12,6 +12,8 @@ image_routes = Blueprint("images", __name__)
 # @login_required
 def upload_image():
     form = ImageForm()
+    print(request.files)
+    form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
 
@@ -24,7 +26,7 @@ def upload_image():
         # if the dictionary doesn't have a url key
         # it means that there was an error when you tried to upload
         # so you send back that error message (and you printed it above)
-            return {'error': 'error'}
+            return {'error': 'Error with image URL'}
 
         url = upload["url"]
         new_image = Image(image= url)
@@ -34,6 +36,6 @@ def upload_image():
 
     if form.errors:
         print(form.errors)
-        return {}
+        return {'errors': form.errors}, 400
 
-    return {'message': 'hello'}
+    return {'message: "Failed to upload image'}, 400

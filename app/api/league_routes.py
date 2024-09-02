@@ -52,7 +52,8 @@ def create_league():
             commissioner_id = current_user.id,
             draft_type = data['draft_type'],
             scoring_system = data['scoring_system'],
-            max_teams = data['max_teams']
+            max_teams = data['max_teams'],
+            image_url = data['image_url']
         )
 
         db.session.add(new_league)

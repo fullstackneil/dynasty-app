@@ -12,8 +12,8 @@ const DeleteTeamForm = ({ teamId, leagueId }) => {
 
     const handleDelete = () => {
         dispatch(deleteATeam(teamId))
-        .then(closeModal())
         .then(dispatch(fetchAllTeamsforLeague(leagueId)))
+        .then(closeModal())
     }
 
     return (

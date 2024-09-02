@@ -41,8 +41,8 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
             };
 
             dispatch(updateTeam(teamId, newTeam))
-            .then(closeModal())
-            .then(dispatch(fetchAllTeamsforLeague(leagueId)));
+            .then(dispatch(fetchAllTeamsforLeague(leagueId)))
+            .then(closeModal());
 
             setName('');
             setValidations({});
