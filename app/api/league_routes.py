@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, request
 from flask_login import current_user, login_required
 from ..models import db, User, League, Team
 from ..forms.league_form import LeagueForm
+from .aws_utils import upload_file_to_s3, get_unique_filename
 
 league_routes = Blueprint('leagues', __name__)
 
@@ -40,7 +41,6 @@ def get_all_teams_in_league(id):
 # CREATE A LEAGUE
 @league_routes.route('/new', methods=["POST"])
 def create_league():
-
     form = LeagueForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 

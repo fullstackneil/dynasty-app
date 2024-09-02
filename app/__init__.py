@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from .models import db, Image, Draft, DraftPick, League, Player, Roster, Team, TradeDetail, Trade, User
+from .models import db, Draft, DraftPick, Image, League, Player, Roster, Team, TradeDetail, Trade, User
 from .api import user_routes, auth_routes, image_routes, league_routes, team_routes
 from .seeds import seed_commands
 from .config import Config

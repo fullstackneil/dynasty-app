@@ -65,8 +65,8 @@ const CreateLeagueForm = () => {
         setFormSubmitted(true)
 
         if (Object.values(validations).length === 0) {
+            console.log(image);
             let imageUrl = null;
-
             if (image) {
                 const formData = new FormData();
                 formData.append("image", image);
@@ -76,7 +76,6 @@ const CreateLeagueForm = () => {
                 setImageLoading(false);
 
                 imageUrl = response?.image
-
             }
 
             const newLeague = {
@@ -89,7 +88,7 @@ const CreateLeagueForm = () => {
 
             dispatch(createALeague(newLeague))
             .then(() => dispatch(fetchAllLeagues()))
-            .then(closeModal());
+            .then(() => closeModal());
 
             setValidations({});
             setName('');
