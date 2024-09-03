@@ -57,6 +57,10 @@ def create_league():
         image = request.files.get('image')
         image_url = None
 
+        if not allowed_file(image.filename):
+                print(f"Error: File type not permitted for filename {image.filename}")
+                return ({"errors": "File type not permitted"}), 400
+
         if image and image.filename:
             image.filename = get_unique_filename(image.filename)
             upload_result = upload_file_to_s3(image)
@@ -90,32 +94,48 @@ def create_league():
 #EDIT A LEAGUE
 @league_routes.route('/<int:id>', methods=["PUT"])
 def edit_league(id):
-
     form = LeagueForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    form["csrf_token"].data = request.cookies.get("csrf_token")
 
-    data = request.get_json()
     league = League.query.get(id)
-
     if not league:
         return {"Error": "There is no league to edit"}, 400
 
     if form.validate_on_submit():
-        if 'name' in data:
-            league.name = data['name']
+        data = form.data
+        print('Form Data >>>>>>>', data)
 
-        if 'draft_type' in data:
-            league.draft_type = data['draft_type']
+        image = request.files.get('image')
+        image_url = league.image_url  # Retain the old image URL if no new image is uploaded
 
-        if 'scoring_system' in data:
-            league.scoring_system = data['scoring_system']
+        if not allowed_file(image.filename):
+                print(f"Error: File type not permitted for filename {image.filename}")
+                return ({"errors": "File type not permitted"}), 400
 
-        if 'max_teams' in data:
-            league.max_teams = data['max_teams']
+        if image and image.filename:
+            image.filename = get_unique_filename(image.filename)
+            upload_result = upload_file_to_s3(image)
 
+            if 'url' not in upload_result:
+                print(f"Error: File upload failed with result {upload_result}")
+                return {"errors": upload_result.get('errors', 'File upload failed')}, 400
+
+            image_url = upload_result['url']
+            print(f"Image uploaded successfully: {image_url}")
+
+        # Update the league object
+        league.name = data['name']
+        league.draft_type = data['draft_type']
+        league.scoring_system = data['scoring_system']
+        league.max_teams = data['max_teams']
+        league.image_url = image_url  # Update image URL with new one
+
+        print('Updated league >>>>>>>>>>>>>>>>>>>>>', league)
         db.session.commit()
 
         return league.to_dict(), 200
+
+    return {'errors': form.errors}, 400
 
 
 #DELETE A LEAGUE

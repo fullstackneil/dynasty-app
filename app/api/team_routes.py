@@ -56,6 +56,10 @@ def create_team(id):
     image = request.files.get('image')
     image_url = None
 
+    if not allowed_file(image.filename):
+                print(f"Error: File type not permitted for filename {image.filename}")
+                return ({"errors": "File type not permitted"}), 400
+
     if image and image.filename:
         image.filename = get_unique_filename(image.filename)
         upload_result = upload_file_to_s3(image)
