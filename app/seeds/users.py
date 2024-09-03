@@ -7,7 +7,6 @@ def seed_users():
 
     users = [
         User(
-            id=1,
             first_name="John",
             last_name="Doe",
             username="johndoe",
@@ -17,7 +16,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=2,
             first_name="Jane",
             last_name="Doe",
             username="janedoe",
@@ -27,7 +25,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=3,
             first_name="Alice",
             last_name="Smith",
             username="alicesmith",
@@ -37,7 +34,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=4,
             first_name="Bob",
             last_name="Brown",
             username="bobbrown",
@@ -47,7 +43,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=5,
             first_name="Charlie",
             last_name="Davis",
             username="charliedavis",
@@ -57,7 +52,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=6,
             first_name="David",
             last_name="Wilson",
             username="davidwilson",
@@ -67,7 +61,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=7,
             first_name="Eva",
             last_name="Martin",
             username="evamartin",
@@ -77,7 +70,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=8,
             first_name="Frank",
             last_name="Thompson",
             username="frankthompson",
@@ -87,7 +79,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=9,
             first_name="Grace",
             last_name="White",
             username="gracewhite",
@@ -97,7 +88,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=10,
             first_name="Hank",
             last_name="Lee",
             username="hanklee",
@@ -107,7 +97,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=11,
             first_name="Ivy",
             last_name="Clark",
             username="ivyclark",
@@ -117,7 +106,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=12,
             first_name="Jack",
             last_name="Walker",
             username="jackwalker",
@@ -127,7 +115,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=13,
             first_name="Kara",
             last_name="Hall",
             username="karahall",
@@ -137,7 +124,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=14,
             first_name="Leo",
             last_name="Allen",
             username="leoallen",
@@ -147,7 +133,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=15,
             first_name="Mia",
             last_name="Young",
             username="miayoung",
@@ -157,7 +142,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=16,
             first_name="Nina",
             last_name="King",
             username="ninaking",
@@ -167,7 +151,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=17,
             first_name="Oscar",
             last_name="Scott",
             username="oscarscott",
@@ -177,7 +160,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=18,
             first_name="Paula",
             last_name="Adams",
             username="paulaadams",
@@ -187,7 +169,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=19,
             first_name="Quincy",
             last_name="Baker",
             username="quincybaker",
@@ -197,7 +178,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=20,
             first_name="Rita",
             last_name="Gonzalez",
             username="ritagonzalez",
@@ -207,7 +187,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=21,
             first_name="Sam",
             last_name="Nelson",
             username="samnelson",
@@ -217,7 +196,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=22,
             first_name="Tina",
             last_name="Carter",
             username="tinacarter",
@@ -227,7 +205,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=23,
             first_name="Ulysses",
             last_name="Mitchell",
             username="ulyssesmitchell",
@@ -237,7 +214,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=24,
             first_name="Vera",
             last_name="Perez",
             username="veraperez",
@@ -247,7 +223,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=25,
             first_name="Will",
             last_name="Ramirez",
             username="willramirez",
@@ -257,7 +232,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=26,
             first_name="Xena",
             last_name="Hughes",
             username="xenahughes",
@@ -267,7 +241,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=27,
             first_name="Yale",
             last_name="Ross",
             username="yaleross",
@@ -277,7 +250,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=28,
             first_name="Zara",
             last_name="Cruz",
             username="zaracruz",
@@ -287,7 +259,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=29,
             first_name="Adam",
             last_name="Simmons",
             username="adamsimmons",
@@ -297,7 +268,6 @@ def seed_users():
             password="password"
         ),
         User(
-            id=30,
             first_name="Bella",
             last_name="Morris",
             username="bellamorris",

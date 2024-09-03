@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateTeam, fetchSingleTeam, fetchAllTeamsforLeague } from '../../redux/team';
 import { useModal } from '../../context/Modal';
-import './UpdateTeamForm.css'
+import './UpdateTeamForm.css';
 
 const UpdateTeamForm = ({ teamId, leagueId }) => {
     const dispatch = useDispatch();
@@ -33,22 +33,26 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
         e.preventDefault();
         setFormSubmitted(true);
 
-        if (Object.values(validations).length === 0) {
-            const newTeam = {
+        if (Object.keys(validations).length === 0) {
+            const updatedTeam = {
                 name,
                 league_id: leagueId,
                 user_id: currentUser.id,
             };
 
-            dispatch(updateTeam(teamId, newTeam))
-            .then(dispatch(fetchAllTeamsforLeague(leagueId)))
-            .then(closeModal());
+            try {
+                await dispatch(updateTeam(teamId, updatedTeam));
+                await dispatch(fetchAllTeamsforLeague(leagueId));
+                closeModal();
 
-            setName('');
-            setValidations({});
-            setFormSubmitted(false);
-        } else {
-            setFormSubmitted(true);
+                // Reset form state only after successful update
+                setName('');
+                setValidations({});
+                setFormSubmitted(false);
+            } catch (error) {
+                console.error('Failed to update team:', error);
+                // Optionally, handle the error by showing an error message to the user
+            }
         }
     };
 
@@ -56,7 +60,9 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
         <form className='update-team-form-container' onSubmit={handleSubmit}>
             <div className='update-team-content'>
                 <h2 className="update-team-title">Change Your Team Name?</h2>
-                {formSubmitted && 'name' in validations && <p className="validation-error-msg">{validations.name}</p>}
+                {formSubmitted && validations.name && (
+                    <p className="validation-error-msg">{validations.name}</p>
+                )}
                 <label className="update-team-label">
                     New Team Name:
                     <input
@@ -68,10 +74,7 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </label>
-                <button
-                    className='update-button'
-                    type="submit"
-                >
+                <button className='update-button' type="submit">
                     Update Your Team
                 </button>
             </div>

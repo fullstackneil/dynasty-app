@@ -10,9 +10,9 @@ const DeleteLeagueForm = ({leagueId}) => {
     const dispatch = useDispatch();
 
     const handleDelete = () => {
-        dispatch(deleteALeague(leagueId))
-        .then(dispatch(fetchAllLeagues()))
-        .then(closeModal());
+      dispatch(deleteALeague(leagueId))
+      .then(dispatch(fetchAllLeagues()))
+      .then(() => closeModal())
     }
 
     return (
