@@ -9,9 +9,9 @@ const DeleteTeamForm = ({ teamId, leagueId }) => {
 
     const handleDelete = async () => {
         try {
-            await dispatch(deleteATeam(teamId));
-            await dispatch(fetchAllTeamsforLeague(leagueId));
-            closeModal();
+            dispatch(deleteATeam(teamId))
+            .then(() => dispatch(fetchAllTeamsforLeague(leagueId)))
+            .then(() => closeModal());
         } catch (error) {
             console.error('Failed to delete team:', error);
             // Optionally, handle the error by showing an error message to the user

@@ -31,9 +31,10 @@ const CreateTeamForm = ({ id }) => {
             };
 
             try {
-                await dispatch(createATeam(id, newTeam));
-                await dispatch(fetchAllTeamsforLeague(id));
-                closeModal();
+                dispatch(createATeam(id, newTeam))
+                .then(() => dispatch(fetchAllTeamsforLeague(id)))
+                .then(() => closeModal());
+                
                 setName('');
                 setValidations({});
                 setFormSubmitted(false);

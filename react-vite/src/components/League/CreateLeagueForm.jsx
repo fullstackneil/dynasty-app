@@ -67,9 +67,9 @@ const CreateLeagueForm = () => {
             setImageLoading(true);
 
             try {
-                await dispatch(createALeague(formData));
-                await dispatch(fetchAllLeagues());
-                closeModal();
+                dispatch(createALeague(formData))
+                .then(() => dispatch(fetchAllLeagues()))
+                .then(() => closeModal());
 
                 // Reset form state only after successful submission
                 resetFormState();

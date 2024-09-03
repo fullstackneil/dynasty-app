@@ -41,9 +41,9 @@ const UpdateTeamForm = ({ teamId, leagueId }) => {
             };
 
             try {
-                await dispatch(updateTeam(teamId, updatedTeam));
-                await dispatch(fetchAllTeamsforLeague(leagueId));
-                closeModal();
+                dispatch(updateTeam(teamId, updatedTeam))
+                .then(() => dispatch(fetchAllTeamsforLeague(leagueId)))
+                .then(() => closeModal());
 
                 // Reset form state only after successful update
                 setName('');

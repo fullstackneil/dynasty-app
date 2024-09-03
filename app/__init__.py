@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 from .models import db, Draft, DraftPick, Image, League, Player, Roster, Team, TradeDetail, Trade, User
-from .api import user_routes, auth_routes, image_routes, league_routes, team_routes
+from .api import user_routes, auth_routes, image_routes, league_routes, team_routes, player_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -30,6 +30,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(image_routes, url_prefix='/api/images')
 app.register_blueprint(league_routes, url_prefix='/api/leagues')
 app.register_blueprint(team_routes, url_prefix='/api/teams')
+app.register_blueprint(player_routes, url_prefix='/api/players')
 db.init_app(app)
 Migrate(app, db)
 

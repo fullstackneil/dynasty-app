@@ -9,12 +9,14 @@ import sessionReducer from "./session";
 import imageReducer from "./image";
 import leagueReducer from "./league";
 import teamReducer from "./team";
+import playerReducer from "./player";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   image: imageReducer,
   league: leagueReducer,
-  team: teamReducer
+  team: teamReducer,
+  player: playerReducer
 });
 
 let enhancer;
