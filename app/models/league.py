@@ -16,7 +16,7 @@ class League(db.Model):
     draft_type = db.Column(db.String(30))
     scoring_system = db.Column(db.String(30))
     max_teams = db.Column(db.Integer)
-    image_url = db.Column(db.String(300), nullable=True)
+    image_url = db.Column(db.String(225), nullable=True)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 

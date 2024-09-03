@@ -12,7 +12,6 @@ def seed_users():
             username="johndoe",
             email="john.doe@example.com",
             phone_number="5551230001",
-            image_url="http://example.com/images/johndoe.jpg",
             password="password"
         ),
         User(
@@ -21,7 +20,6 @@ def seed_users():
             username="janedoe",
             email="jane.doe@example.com",
             phone_number="5551230002",
-            image_url="http://example.com/images/janedoe.jpg",
             password="password"
         ),
         User(
@@ -30,7 +28,6 @@ def seed_users():
             username="alicesmith",
             email="alice.smith@example.com",
             phone_number="5551230003",
-            image_url="http://example.com/images/alicesmith.jpg",
             password="password"
         ),
         User(
@@ -39,7 +36,6 @@ def seed_users():
             username="bobbrown",
             email="bob.brown@example.com",
             phone_number="5551230004",
-            image_url="http://example.com/images/bobbrown.jpg",
             password="password"
         ),
         User(
@@ -48,7 +44,6 @@ def seed_users():
             username="charliedavis",
             email="charlie.davis@example.com",
             phone_number="5551230005",
-            image_url="http://example.com/images/charliedavis.jpg",
             password="password"
         ),
         User(
@@ -57,7 +52,6 @@ def seed_users():
             username="davidwilson",
             email="david.wilson@example.com",
             phone_number="5551230006",
-            image_url="http://example.com/images/davidwilson.jpg",
             password="password"
         ),
         User(
@@ -66,7 +60,6 @@ def seed_users():
             username="evamartin",
             email="eva.martin@example.com",
             phone_number="5551230007",
-            image_url="http://example.com/images/evamartin.jpg",
             password="password"
         ),
         User(
@@ -75,7 +68,6 @@ def seed_users():
             username="frankthompson",
             email="frank.thompson@example.com",
             phone_number="5551230008",
-            image_url="http://example.com/images/frankthompson.jpg",
             password="password"
         ),
         User(
@@ -84,7 +76,6 @@ def seed_users():
             username="gracewhite",
             email="grace.white@example.com",
             phone_number="5551230009",
-            image_url="http://example.com/images/gracewhite.jpg",
             password="password"
         ),
         User(
@@ -93,7 +84,6 @@ def seed_users():
             username="hanklee",
             email="hank.lee@example.com",
             phone_number="5551230010",
-            image_url="http://example.com/images/hanklee.jpg",
             password="password"
         ),
         User(
@@ -102,7 +92,6 @@ def seed_users():
             username="ivyclark",
             email="ivy.clark@example.com",
             phone_number="5551230011",
-            image_url="http://example.com/images/ivyclark.jpg",
             password="password"
         ),
         User(
@@ -111,7 +100,6 @@ def seed_users():
             username="jackwalker",
             email="jack.walker@example.com",
             phone_number="5551230012",
-            image_url="http://example.com/images/jackwalker.jpg",
             password="password"
         ),
         User(
@@ -120,7 +108,6 @@ def seed_users():
             username="karahall",
             email="kara.hall@example.com",
             phone_number="5551230013",
-            image_url="http://example.com/images/karahall.jpg",
             password="password"
         ),
         User(
@@ -129,7 +116,6 @@ def seed_users():
             username="leoallen",
             email="leo.allen@example.com",
             phone_number="5551230014",
-            image_url="http://example.com/images/leoallen.jpg",
             password="password"
         ),
         User(
@@ -138,7 +124,6 @@ def seed_users():
             username="miayoung",
             email="mia.young@example.com",
             phone_number="5551230015",
-            image_url="http://example.com/images/miayoung.jpg",
             password="password"
         ),
         User(
@@ -147,7 +132,6 @@ def seed_users():
             username="ninaking",
             email="nina.king@example.com",
             phone_number="5551230016",
-            image_url="http://example.com/images/ninaking.jpg",
             password="password"
         ),
         User(
@@ -156,7 +140,6 @@ def seed_users():
             username="oscarscott",
             email="oscar.scott@example.com",
             phone_number="5551230017",
-            image_url="http://example.com/images/oscarscott.jpg",
             password="password"
         ),
         User(
@@ -165,7 +148,6 @@ def seed_users():
             username="paulaadams",
             email="paula.adams@example.com",
             phone_number="5551230018",
-            image_url="http://example.com/images/paulaadams.jpg",
             password="password"
         ),
         User(
@@ -174,7 +156,6 @@ def seed_users():
             username="quincybaker",
             email="quincy.baker@example.com",
             phone_number="5551230019",
-            image_url="http://example.com/images/quincybaker.jpg",
             password="password"
         ),
         User(
@@ -183,7 +164,6 @@ def seed_users():
             username="ritagonzalez",
             email="rita.gonzalez@example.com",
             phone_number="5551230020",
-            image_url="http://example.com/images/ritagonzalez.jpg",
             password="password"
         ),
         User(
@@ -192,7 +172,6 @@ def seed_users():
             username="samnelson",
             email="sam.nelson@example.com",
             phone_number="5551230021",
-            image_url="http://example.com/images/samnelson.jpg",
             password="password"
         ),
         User(
@@ -201,7 +180,6 @@ def seed_users():
             username="tinacarter",
             email="tina.carter@example.com",
             phone_number="5551230022",
-            image_url="http://example.com/images/tinacarter.jpg",
             password="password"
         ),
         User(
@@ -210,7 +188,6 @@ def seed_users():
             username="ulyssesmitchell",
             email="ulysses.mitchell@example.com",
             phone_number="5551230023",
-            image_url="http://example.com/images/ulyssesmitchell.jpg",
             password="password"
         ),
         User(
@@ -219,7 +196,6 @@ def seed_users():
             username="veraperez",
             email="vera.perez@example.com",
             phone_number="5551230024",
-            image_url="http://example.com/images/veraperez.jpg",
             password="password"
         ),
         User(
@@ -228,7 +204,6 @@ def seed_users():
             username="willramirez",
             email="will.ramirez@example.com",
             phone_number="5551230025",
-            image_url="http://example.com/images/willramirez.jpg",
             password="password"
         ),
         User(
@@ -237,7 +212,6 @@ def seed_users():
             username="xenahughes",
             email="xena.hughes@example.com",
             phone_number="5551230026",
-            image_url="http://example.com/images/xenahughes.jpg",
             password="password"
         ),
         User(
@@ -246,7 +220,6 @@ def seed_users():
             username="yaleross",
             email="yale.ross@example.com",
             phone_number="5551230027",
-            image_url="http://example.com/images/yaleross.jpg",
             password="password"
         ),
         User(
@@ -255,7 +228,6 @@ def seed_users():
             username="zaracruz",
             email="zara.cruz@example.com",
             phone_number="5551230028",
-            image_url="http://example.com/images/zaracruz.jpg",
             password="password"
         ),
         User(
@@ -264,7 +236,6 @@ def seed_users():
             username="adamsimmons",
             email="adam.simmons@example.com",
             phone_number="5551230029",
-            image_url="http://example.com/images/adamsimmons.jpg",
             password="password"
         ),
         User(
@@ -273,7 +244,6 @@ def seed_users():
             username="bellamorris",
             email="bella.morris@example.com",
             phone_number="5551230030",
-            image_url="http://example.com/images/bellamorris.jpg",
             password="password"
         )
     ]
