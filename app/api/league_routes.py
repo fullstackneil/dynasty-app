@@ -2,10 +2,16 @@ from flask import Blueprint, redirect, render_template, request
 from flask_login import current_user, login_required
 from ..models import db, User, League, Team
 from ..forms.league_form import LeagueForm
-from .aws_utils import upload_file_to_s3, get_unique_filename
+from .aws_utils import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 league_routes = Blueprint('leagues', __name__)
 
+# Allowed file extensions for image uploads
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+
+# Helper function to check if the file extension is allowed
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # GET ALL LEAGUES
 @league_routes.route('/')

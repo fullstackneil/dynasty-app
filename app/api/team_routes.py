@@ -3,10 +3,17 @@ from flask_login import current_user, login_required
 import random
 from ..models import db, User, League, Team
 from ..forms import TeamForm
-from .aws_utils import upload_file_to_s3, get_unique_filename
+from .aws_utils import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 
 team_routes = Blueprint('teams', __name__)
+
+# Allowed file extensions for image uploads
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+
+# Helper function to check if the file extension is allowed
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 # GET A SINGLE TEAM
@@ -85,24 +92,47 @@ def create_team(id):
 # EDIT A TEAM
 @team_routes.route('/<int:id>', methods=["PUT"])
 def update_team(id):
-
-    data = request.get_json()
     team = Team.query.get(id)
 
     if not team:
         return {'Error': 'This team does not exist.'}, 404
 
-    if 'name' in data:
-        team.name = data['name']
+    # Create and validate the form
+    form = TeamForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
 
-    if 'league_id' in data:
-        team.league_id = data['league_id']
+    if not form.validate_on_submit():
+        return {'Error': form.errors}, 400
 
-    if 'user_id' in data:
-        team.user_id = data['user_id']
+    # Image processing
+    image = request.files.get('image')
+    if image and image.filename and allowed_file(image.filename):
+        if team.image_url:
+            # Remove the old image from S3
+            remove_file_from_s3(team.image_url)
 
-    if 'draft_position' in data:
-        team.draft_position = data['draft_position']
+        # Process and upload new image
+        image.filename = get_unique_filename(image.filename)
+        upload_result = upload_file_to_s3(image)
+
+        if 'url' not in upload_result:
+            return {"Error": upload_result.get('errors', 'File upload failed')}, 400
+
+        # Update team with new image URL
+        team.image_url = upload_result['url']
+
+    # Update team details from form data
+    if 'name' in form.data:
+        team.name = form.data['name']
+
+    if 'league_id' in form.data:
+        team.league_id = form.data['league_id']
+
+    if 'user_id' in form.data:
+        team.user_id = form.data['user_id']
+
+    if 'draft_position' in form.data:
+        team.draft_position = form.data['draft_position']
 
     db.session.commit()
 
