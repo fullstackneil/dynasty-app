@@ -12,7 +12,7 @@
     position: relative;
     border: solid 1px white;
     display: grid;
-    grid-template-columns: repeat(3, 2fr);
+    grid-template-columns: repeat(1, 1fr);
     max-height: 200px;
     /* overflow: hidden; */
 }
@@ -25,7 +25,7 @@
 
 .player-ranking {
     padding-right: 10rem;
-    padding-left: 3 rem;
+    padding-left: 3rem;
 }
 
 .player-name-text {
