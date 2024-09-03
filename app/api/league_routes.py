@@ -42,30 +42,34 @@ def get_all_teams_in_league(id):
 @league_routes.route('/new', methods=["POST"])
 def create_league():
     form = LeagueForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    form["csrf_token"].data = request.cookies.get("csrf_token")
 
     if form.validate_on_submit():
         data = form.data
         print('Form Data >>>>>>>', data)
 
         image = request.files.get('image')
+        image_url = None
 
-        image.filename = get_unique_filename(image.filename)
-        upload_result = upload_file_to_s3(image)
+        if image and image.filename:
+            image.filename = get_unique_filename(image.filename)
+            upload_result = upload_file_to_s3(image)
 
-        if 'url' not in upload_result:
+            if 'url' not in upload_result:
                 print(f"Error: File upload failed with result {upload_result}")
-                return ({"errors": upload_result.get('errors', 'File upload failed')}), 400
+                return {"errors": upload_result.get('errors', 'File upload failed')}, 400
 
-        print(f"Image uploaded successfully: {upload_result['url']}")
-
-        new_league = League(
-            name = data['name'],
-            commissioner_id = current_user.id,
-            draft_type = data['draft_type'],
-            scoring_system = data['scoring_system'],
-            max_teams = data['max_teams'],
             image_url = upload_result['url']
+            print(f"Image uploaded successfully: {image_url}")
+
+        # Create the new league object
+        new_league = League(
+            name=data['name'],
+            commissioner_id=current_user.id,
+            draft_type=data['draft_type'],
+            scoring_system=data['scoring_system'],
+            max_teams=data['max_teams'],
+            image_url=image_url  # Set to None if no image uploaded
         )
 
         print('New league >>>>>>>>>>>>>>>>>>>>>', new_league)
@@ -75,6 +79,7 @@ def create_league():
         return new_league.to_dict(), 200
 
     return {'errors': form.errors}, 400
+
 
 #EDIT A LEAGUE
 @league_routes.route('/<int:id>', methods=["PUT"])

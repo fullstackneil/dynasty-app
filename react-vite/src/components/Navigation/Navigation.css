@@ -13,6 +13,10 @@
 	background-color: white;
 }
 
+.nav-link {
+	font-size: var(--fs-medium);
+}
+
 .navbar-container {
 	position: fixed; /* Make the navbar fixed at the top */
 	top: 0;

@@ -13,13 +13,13 @@ const CreateLeagueForm = () => {
     const [scoring_system, setScoring_System] = useState('');
     const [max_teams, setMax_Teams] = useState('');
     const [image, setImage] = useState(null);
+    const [imagePreview, setImagePreview] = useState(null); // New state for image preview
     const [imageLoading, setImageLoading] = useState(false);
     const [validations, setValidations] = useState({});
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const allLeagues = useSelector((state) => state.league.allLeaguesArr);
 
-    // DRAFT TYPE OPTIONS - Displaying various draft options
     const uniqueDraftTypes = [...new Set(allLeagues.map((league) => league.draft_type))];
     const draftTypeOptions = uniqueDraftTypes.map((draftType, index) => (
         <option key={index} value={draftType}>
@@ -27,7 +27,6 @@ const CreateLeagueForm = () => {
         </option>
     ));
 
-    // SCORING SYSTEM OPTIONS - Displaying various scoring system options
     const uniqueScoringSystems = [...new Set(allLeagues.map((league) => league.scoring_system))];
     const scoringSystemOptions = uniqueScoringSystems.map((scoringSystem, index) => (
         <option key={index} value={scoringSystem}>
@@ -35,7 +34,6 @@ const CreateLeagueForm = () => {
         </option>
     ));
 
-    // MAX TEAM OPTIONS - Displaying various max team options
     const uniqueMaxTeams = [...new Set(allLeagues.map((league) => league.max_teams))];
     const maxTeamsOptions = uniqueMaxTeams.map((maxTeam, index) => (
         <option key={index} value={maxTeam}>
@@ -51,6 +49,12 @@ const CreateLeagueForm = () => {
         if (!max_teams) validationsObj.max_teams = 'Max teams amount is required.';
         setValidations(validationsObj);
     }, [name, draft_type, scoring_system, max_teams]);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+        setImagePreview(URL.createObjectURL(file)); // Generate a preview URL
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -71,11 +75,9 @@ const CreateLeagueForm = () => {
                 .then(() => dispatch(fetchAllLeagues()))
                 .then(() => closeModal());
 
-                // Reset form state only after successful submission
                 resetFormState();
             } catch (error) {
                 console.error("Failed to create league:", error);
-                // Optionally, display an error message to the user here
             } finally {
                 setImageLoading(false);
             }
@@ -88,6 +90,7 @@ const CreateLeagueForm = () => {
         setScoring_System('');
         setMax_Teams('');
         setImage(null);
+        setImagePreview(null); // Reset the image preview
         setValidations({});
         setFormSubmitted(false);
     };
@@ -110,13 +113,18 @@ const CreateLeagueForm = () => {
                     <p className='validation-error-msg'>{validations.name}</p>
                 )}
                 <label className='league-image-label'>
-                    Upload League Profile Pic:
+                    League Avatar:
                     <input
                         type='file'
                         accept='image/*'
-                        onChange={(e) => setImage(e.target.files[0])}
+                        onChange={handleImageChange}
                     />
                 </label>
+                {imagePreview && (
+                    <div className='image-preview'>
+                        <img src={imagePreview} alt='Preview' className='preview-img' />
+                    </div>
+                )}
                 {imageLoading && <p>Loading...</p>}
                 <label htmlFor='league-draft-type-label'>
                     Draft Type:

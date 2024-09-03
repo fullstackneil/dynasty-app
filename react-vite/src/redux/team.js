@@ -80,11 +80,11 @@ export const fetchSingleTeam = (team_id) => async (dispatch) => {
     }
 }
 
-export const createATeam = (league_id, newTeam) => async (dispatch) => {
+export const createATeam = (league_id, formData) => async (dispatch) => {
     const response = await fetch(`/api/teams/${league_id}/create`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newTeam),
+        // headers: { 'Content-Type': 'application/json' },
+        body: formData,
     });
 
     if (response.ok) {

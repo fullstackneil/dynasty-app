@@ -16,7 +16,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(225), nullable=False, unique=True)
     phone_number = db.Column(db.String(10), nullable=False, unique=True)
-    image_url = db.Column(db.String(225), nullable=True)
     hashed_password = db.Column(db.String(225), nullable=True)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
@@ -44,5 +43,4 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'phone_number': self.phone_number,
             'password': self.password,
-            'image_url': self.image_url
         }

@@ -40,7 +40,7 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout())
     .then(() => closeMenu())
-    .then(() => navigate('/login'))
+    .then(() => navigate('/'))
   };
 
   return (

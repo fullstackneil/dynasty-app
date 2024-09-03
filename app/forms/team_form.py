@@ -11,6 +11,8 @@ class TeamForm(FlaskForm):
                             coerce=int,
                             validators=[DataRequired()])
 
+    image_url = StringField('Image URL')
+
     submit = SubmitField('Create Team')
 
     def __init__(self, *args, **kwargs):

@@ -40,24 +40,31 @@ const TeamIndex = () => {
                 {allTeamsArr.length > 0 ? (
                     allTeamsArr.map((team) => (
                         <div key={team.id} className='team-spot-container'>
-                            <div className='team-info-text'>
-                                <h2>{team.name}</h2>
-                                <p>Team Name: {team.name}</p>
-                                <p>Draft Position: {team.draft_position}</p>
-                                {currentUser?.id === team.user_id && (
-                                <>
-                                    <button
-                                    className='edit-button'
-                                    onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
-                                    > Edit
-                                    </button>
-                                    <button
-                                    className='delete-button'
-                                    onClick={() => setModalContent(<DeleteTeamForm teamId={team.id} leagueId={team.league_id}/>)}
-                                    >
-                                    Delete
-                                    </button>
-                                </>
+                            <div className='team-details-container'>
+                                <div className='team-info-text'>
+                                    <h2>{team.name}</h2>
+                                    {/* <p>Team Name: {team.name}</p> */}
+                                    <p>Draft Position: {team.draft_position}</p>
+                                    {currentUser?.id === team.user_id && (
+                                    <>
+                                        <button
+                                        className='edit-button'
+                                        onClick={() => setModalContent(<UpdateTeamForm teamId={team.id} leagueId={team.league_id} />)}
+                                        > Edit
+                                        </button>
+                                        <button
+                                        className='delete-button'
+                                        onClick={() => setModalContent(<DeleteTeamForm teamId={team.id} leagueId={team.league_id}/>)}
+                                        >
+                                        Delete
+                                        </button>
+                                    </>
+                                    )}
+                                </div>
+                                {team.image_url && (
+                                    <div className='team-image-container'>
+                                        <img src={team.image_url} className='team-image' />
+                                    </div>
                                 )}
                             </div>
                         </div>

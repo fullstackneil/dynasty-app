@@ -1,0 +1,52 @@
+
+.player-page-header {
+    padding-top: 15rem;
+    font-size: var(--fs-x-large);
+    color: white;
+}
+
+.player-list-container {
+    padding-top: 4rem;
+}
+.player-spot-container {
+    position: relative;
+    border: solid 1px white;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    max-height: 200px;
+    /* overflow: hidden; */
+}
+
+.player-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.player-ranking {
+    padding-right: 10rem;
+    padding-left: 3 rem;
+}
+
+.player-name-text {
+    color: var(--second-clr);
+}
+
+.player-position {
+    color: var(--first-clr);
+}
+
+.player-team {
+    color: var(--fifth-clr);
+}
+
+.player-image-container {
+    display: flex;
+    height: 100%;
+    width: 25%;
+}
+
+.player-image {
+    max-width: 10rem;
+    height: auto;
+}

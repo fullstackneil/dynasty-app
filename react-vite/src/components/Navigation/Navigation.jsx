@@ -16,7 +16,7 @@ function Navigation() {
         Teams
       </NavLink>
       <NavLink className='nav-link' to='/players'>
-        Players
+        Player Rankings
       </NavLink>
       <NavLink className='nav-link' to='/draft'>
         Draft

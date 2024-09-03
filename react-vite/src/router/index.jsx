@@ -5,6 +5,7 @@ import UploadPicture from '../components/UploadPicture/UploadPicture'
 import LeagueIndex from '../components/League/LeagueIndex';
 import HomePage from '../components/HomePage/HomePage'
 import TeamIndex from '../components/Team/TeamIndex';
+import PlayerIndex from '../components/Player/PlayerIndex';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -35,10 +36,10 @@ export const router = createBrowserRouter([
         path: "/images",
         element: <UploadPicture />,
       },
-      // {
-      //   path: "/leagues",
-      //   element: <League />,
-      // }
+      {
+        path: "/players",
+        element: <PlayerIndex />,
+      }
     ],
   },
 ]);

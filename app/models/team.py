@@ -12,6 +12,7 @@ class Team(db.Model):
     league_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('leagues.id')), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     draft_position = db.Column(db.Integer)
+    image_url = db.Column(db.String(300), nullable=True)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
@@ -31,4 +32,5 @@ class Team(db.Model):
             'league_id': self.league_id,
             'user_id': self.user_id,
             'draft_position': self.draft_position,
+            'image_url': self.image_url
         }

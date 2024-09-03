@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     width: 30rem;
-    height: 20rem;
+    height: 40rem;
   }
 
   .team-form-title {
@@ -29,6 +29,20 @@
     background-color: white;
     width: 15rem;
     height: 1.5rem;
+  }
+
+  .team-image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .preview-img {
+    max-width: 50%;
+    max-height: 120rem; /* Adjust the max height as needed */
+    border-radius: 5px;
+    object-fit: cover;
   }
 
   .submit-button {
